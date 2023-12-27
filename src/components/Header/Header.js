@@ -1,9 +1,10 @@
 import "./Header.css";
+import logo from "../../../public/images/logo.svg";
 
 function Header() {
   return (
     <>
-      <div>Logo</div>
+      <img src={logo} alt="WTWR Logo" />
       <div>Current Date</div>
       <div>Current Location</div>
       <button>Add New Clothes</button>
