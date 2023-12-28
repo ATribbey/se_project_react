@@ -13,8 +13,8 @@ p {
   padding: 0 20px;
 }
 
-.header__logo {
-  font-family: "Cabinet Grotesk Bold", Arial, Helvetica, sans-serif;
+.header__section {
+  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
   display: flex;
   align-items: center;
   gap: 24px;

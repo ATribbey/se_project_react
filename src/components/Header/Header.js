@@ -18,12 +18,12 @@ function getDate() {
 function Header() {
   return (
     <header className="header">
-      <div className="header__logo">
+      <div className="header__section">
         <img src={logo} alt="WTWR Logo" />
         <p className="header__date">{getDate()}</p>
         <p className="header__location">Current Location</p>
       </div>
-      <div className="header__logo">
+      <div className="header__section">
         <button type="button" className="header__button">
           + Add clothes
         </button>
