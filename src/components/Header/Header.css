@@ -1,3 +1,6 @@
+@import url(../../vendor/fonts.css);
+@import url(../../vendor/normalize.css);
+
 .header {
   display: flex;
   justify-content: space-between;
