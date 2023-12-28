@@ -17,3 +17,9 @@
   line-height: 24px;
   font-size: 20px;
 }
+
+.header__button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}

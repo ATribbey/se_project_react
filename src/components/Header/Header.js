@@ -24,7 +24,9 @@ function Header() {
         <div>Current Location</div>
       </div>
       <div className="header__logo">
-        <button type="button">+ Add clothes</button>
+        <button type="button" className="header__button">
+          + Add clothes
+        </button>
         <div>Terrence Tegegne</div>
         <img src={avatar} alt="Profile Avatar" />
       </div>
