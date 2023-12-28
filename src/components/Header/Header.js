@@ -1,6 +1,6 @@
 import "./Header.css";
 import logo from "../../images/logo.svg";
-import avatar from "../../images/userAvatar.png";
+import avatar from "../../images/user-avatar.png";
 
 function getDate() {
   const currentDate = new Date().toLocaleString("default", {
