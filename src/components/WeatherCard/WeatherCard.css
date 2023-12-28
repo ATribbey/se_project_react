@@ -1,2 +1,21 @@
 @import url(../../vendor/fonts.css);
 @import url(../../vendor/normalize.css);
+
+.weather {
+  position: relative;
+  margin: 0 20px;
+}
+
+.weather__temp {
+  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
+  line-height: 40px;
+  font-size: 36px;
+  color: #fff;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.weather__banner {
+  width: 100%;
+}
