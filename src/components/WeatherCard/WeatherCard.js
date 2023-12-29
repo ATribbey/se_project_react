@@ -2,7 +2,7 @@ import "./WeatherCard.css";
 
 const weatherOptions = [
   {
-    url: "./src/images/weathercard-banners/day-sunny.svg",
+    url: "../../images/weathercard-banners/day-sunny.svg",
     day: true,
     type: "sunny",
   },
