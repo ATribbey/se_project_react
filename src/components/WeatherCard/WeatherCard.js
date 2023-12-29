@@ -1,4 +1,5 @@
 import "./WeatherCard.css";
+import testWeather from "../../images/weathercard-banners/day-sunny.svg";
 
 const weatherOptions = [
   {
@@ -74,7 +75,7 @@ function WeatherCard({ day, type }) {
     <section className="weather">
       <p className="weather__temp">75°F</p>
       <img
-        src={bannerSrcUrl}
+        src={testWeather}
         alt="Current Weather Banner"
         className="weather__banner"
       />
