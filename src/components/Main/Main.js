@@ -5,7 +5,7 @@ import ItemCard from "../ItemCard/ItemCard.js";
 function Main() {
   return (
     <>
-      <WeatherCard />
+      <WeatherCard day={true} type="sunny" />
       <ItemCard />
     </>
   );
