@@ -1,0 +1,28 @@
+@import url(../../vendor/fonts.css);
+@import url(../../vendor/normalize.css);
+
+.itemcard {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 20px;
+  gap: 20px;
+}
+
+.itemcard__card {
+}
+
+.itemcard__name {
+  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  opacity: 0.6;
+  position: relative;
+  top: 60px;
+  text-align: center;
+}
+
+.itemcard__image {
+  border-radius: 6%;
+  width: 328px;
+  height: 328px;
+}
