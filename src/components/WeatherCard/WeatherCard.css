@@ -3,7 +3,7 @@
 
 .weather {
   position: relative;
-  margin: 0 20px;
+  margin: 0 20px 40px 20px;
 }
 
 .weather__temp {

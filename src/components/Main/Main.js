@@ -7,10 +7,15 @@ function Main() {
   return (
     <>
       <WeatherCard day={false} type="clear" />
-      <section className="itemcard">
-        {defaultClothingItems.map((item) => {
-          return <ItemCard item={item} />;
-        })}
+      <section id="clothing-card-section">
+        <p className="itemcard__description">
+          Today is 75°F / You may want to wear:
+        </p>
+        <div className="itemcard">
+          {defaultClothingItems.map((item) => {
+            return <ItemCard item={item} />;
+          })}
+        </div>
       </section>
     </>
   );
