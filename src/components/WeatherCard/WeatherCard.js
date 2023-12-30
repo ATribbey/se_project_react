@@ -27,7 +27,7 @@ const weatherOptions = [
   { url: nightStormy, day: false, type: "stormy" },
 ];
 
-function WeatherCard({ day, type }) {
+function WeatherCard({ day, type, weatherTemp = "" }) {
   const bannerSrc = weatherOptions.filter((image) => {
     return image.day === day && image.type === type;
   });
@@ -36,7 +36,7 @@ function WeatherCard({ day, type }) {
 
   return (
     <section className="weather">
-      <p className="weather__temp">75°F</p>
+      <p className="weather__temp">{weatherTemp}</p>
       <img
         src={bannerSrcUrl}
         alt="Current Weather Banner"

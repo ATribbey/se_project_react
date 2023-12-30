@@ -4,12 +4,13 @@ import ItemCard from "../ItemCard/ItemCard.js";
 import defaultClothingItems from "../../utils/DefaultClothing";
 
 function Main() {
+  const weatherTemp = "65°F";
   return (
     <>
-      <WeatherCard day={false} type="clear" />
+      <WeatherCard day={false} type="clear" weatherTemp={weatherTemp} />
       <section id="clothing-card-section">
         <p className="itemcard__description">
-          Today is 75°F / You may want to wear:
+          Today is {weatherTemp} / You may want to wear:
         </p>
         <div className="itemcard">
           {defaultClothingItems.map((item) => {
