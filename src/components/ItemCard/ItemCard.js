@@ -1,9 +1,17 @@
 import "./ItemCard.css";
+import defaultClothingItems from "../../utils/DefaultClothing";
 
 function ItemCard() {
   return (
     <>
-      <p>Hello I am ItemCard</p>
+      {defaultClothingItems.map((item) => {
+        return (
+          <>
+            <p>{item.name}</p>
+            <img src={item.link} alt="Clothing Item" />
+          </>
+        );
+      })}
     </>
   );
 }
