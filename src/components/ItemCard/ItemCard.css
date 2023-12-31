@@ -15,6 +15,16 @@
   line-height: 25px;
 }
 
+.itemcard__list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.itemcard__card {
+  width: 328px;
+  height: 328px;
+}
+
 .itemcard__name {
   font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
   font-size: 16px;
