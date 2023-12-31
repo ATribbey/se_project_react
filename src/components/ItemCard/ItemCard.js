@@ -1,6 +1,10 @@
 import "./ItemCard.css";
 
-function ItemCard({ item }) {
+function ItemCard({ item, modalState, handleCardClick }) {
+  console.log(modalState);
+
+  handleCardClick();
+
   return (
     <>
       <ul className="itemcard__list">

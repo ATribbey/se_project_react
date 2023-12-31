@@ -3,7 +3,7 @@ import WeatherCard from "../WeatherCard/WeatherCard.js";
 import ItemCard from "../ItemCard/ItemCard.js";
 import defaultClothingItems from "../../utils/DefaultClothing";
 
-function Main({ weatherTemp }) {
+function Main({ weatherTemp, modalState, handleCardClick }) {
   return (
     <>
       <WeatherCard day={false} type="clear" weatherTemp={weatherTemp} />
@@ -13,7 +13,13 @@ function Main({ weatherTemp }) {
         </p>
         <div className="itemcard">
           {defaultClothingItems.map((item) => {
-            return <ItemCard item={item} />;
+            return (
+              <ItemCard
+                item={item}
+                modalState={modalState}
+                handleCardClick={handleCardClick()}
+              />
+            );
           })}
         </div>
       </section>
