@@ -3,8 +3,7 @@ import WeatherCard from "../WeatherCard/WeatherCard.js";
 import ItemCard from "../ItemCard/ItemCard.js";
 import defaultClothingItems from "../../utils/DefaultClothing";
 
-function Main() {
-  const weatherTemp = "65°F";
+function Main({ weatherTemp }) {
   return (
     <>
       <WeatherCard day={false} type="clear" weatherTemp={weatherTemp} />
