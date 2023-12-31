@@ -3,7 +3,7 @@ import "./ItemCard.css";
 function ItemCard({ item, modalState, handleCardClick }) {
   console.log(modalState);
 
-  handleCardClick();
+  // handleCardClick();
 
   return (
     <>

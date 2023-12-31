@@ -17,7 +17,7 @@ function Main({ weatherTemp, modalState, handleCardClick }) {
               <ItemCard
                 item={item}
                 modalState={modalState}
-                handleCardClick={handleCardClick()}
+                handleCardClick={handleCardClick}
               />
             );
           })}
