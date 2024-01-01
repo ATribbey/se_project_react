@@ -16,7 +16,7 @@ function App() {
       <Main
         weatherTemp={weatherTemp}
         modalState={modalState}
-        handleCardClick={handleCardClick()}
+        handleCardClick={handleCardClick}
       />
       <Footer />
     </>
