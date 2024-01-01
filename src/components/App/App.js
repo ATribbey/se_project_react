@@ -16,16 +16,26 @@ function App() {
   function handleOpenCreateModal() {
     setActiveModal("create");
     document.addEventListener("keyup", handleEscapeClose);
+    document.addEventListener("click", handleClickClose);
   }
 
   function handleCloseModal() {
     setActiveModal("");
     document.removeEventListener("keyup", handleEscapeClose);
+    document.removeEventListener("click", handleClickClose);
   }
 
   function handleEscapeClose(event) {
     if (event.key === "Escape") {
       setActiveModal("");
+      document.removeEventListener("keyup", handleEscapeClose);
+    }
+  }
+
+  function handleClickClose(event) {
+    if (event.target.classList.contains("modal")) {
+      setActiveModal("");
+      document.removeEventListener("click", handleClickClose);
     }
   }
 
@@ -37,7 +47,12 @@ function App() {
   return (
     <>
       <Header onClick={handleOpenCreateModal} />
-      <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard} />
+      <Main
+        weatherTemp={weatherTemp}
+        onSelectCard={handleSelectedCard}
+        escClose={handleEscapeClose}
+        clickClose={handleClickClose}
+      />
       {activeModal === "create" && (
         <ModalWithForm
           name="add-new-garment"

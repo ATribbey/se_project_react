@@ -1,6 +1,6 @@
 import "./ItemCard.css";
 
-function ItemCard({ item, onSelectCard }) {
+function ItemCard({ item, onSelectCard, escClose, clickClose }) {
   return (
     <>
       <ul className="itemcard__list">
@@ -12,6 +12,8 @@ function ItemCard({ item, onSelectCard }) {
             alt="Clothing Item"
             onClick={() => {
               onSelectCard(item);
+              document.addEventListener("keyup", escClose);
+              document.addEventListener("click", clickClose);
             }}
           />
         </li>
