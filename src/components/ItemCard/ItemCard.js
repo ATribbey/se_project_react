@@ -1,10 +1,6 @@
 import "./ItemCard.css";
 
-function ItemCard({ item, modalState, handleCardClick }) {
-  console.log(modalState);
-
-  console.log(handleCardClick());
-
+function ItemCard({ item, onSelectCard }) {
   return (
     <>
       <ul className="itemcard__list">
@@ -14,6 +10,9 @@ function ItemCard({ item, modalState, handleCardClick }) {
             className="itemcard__image"
             src={item.link}
             alt="Clothing Item"
+            onClick={() => {
+              onSelectCard(item);
+            }}
           />
         </li>
       </ul>

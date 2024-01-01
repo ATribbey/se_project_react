@@ -3,16 +3,15 @@ import React, { useState } from "react";
 import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.js";
+import ItemModal from "../ItemModal/ItemModal.js";
 import Footer from "../Footer/Footer.js";
 
 const weatherTemp = "55°F";
-const modalState = "Hello, I am Modal State";
-function handleCardClick() {
-  console.log("Hello, I am Card Click Handler");
-}
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+
+  const [selectedCard, setSelectedCard] = useState({});
 
   function handleOpenCreateModal() {
     setActiveModal("create");
@@ -22,14 +21,16 @@ function App() {
     setActiveModal("");
   }
 
+  function handleSelectedCard(card) {
+    setSelectedCard(card);
+    setActiveModal("preview");
+    console.log(card);
+  }
+
   return (
     <>
       <Header onClick={handleOpenCreateModal} />
-      <Main
-        weatherTemp={weatherTemp}
-        modalState={modalState}
-        handleCardClick={handleCardClick}
-      />
+      <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard} />
       {activeModal === "create" && (
         <ModalWithForm
           name="add-new-garment"
@@ -80,6 +81,9 @@ function App() {
             <label for="cold"> Cold</label>
           </fieldset>
         </ModalWithForm>
+      )}
+      {activeModal === "preview" && (
+        <ItemModal cardObj={selectedCard} onClose={handleCloseModal} />
       )}
       <Footer />
     </>
