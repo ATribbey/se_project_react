@@ -1,2 +1,27 @@
 @import url(../../vendor/fonts.css);
 @import url(../../vendor/normalize.css);
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal__content {
+  background-color: #fff;
+  border-radius: 6%;
+  max-width: 496px;
+  width: 100%;
+}
+
+.modal__title {
+  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}

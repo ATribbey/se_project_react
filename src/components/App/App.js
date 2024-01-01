@@ -1,7 +1,8 @@
 import "./App.css";
 import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
 import Main from "../Main/Main.js";
+import ModalWithForm from "../ModalWithForm/ModalWithForm.js";
+import Footer from "../Footer/Footer.js";
 
 function App() {
   const weatherTemp = "55°F";
@@ -18,6 +19,13 @@ function App() {
         modalState={modalState}
         handleCardClick={handleCardClick}
       />
+      <ModalWithForm
+        name="add-new-garment"
+        title="New Garment"
+        buttonText="Add New garment"
+      >
+        Hello I am Children
+      </ModalWithForm>
       <Footer />
     </>
   );
