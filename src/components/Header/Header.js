@@ -15,7 +15,7 @@ function getDate() {
   );
 }
 
-function Header() {
+function Header({ onClick }) {
   return (
     <header className="header">
       <div className="header__section">
@@ -24,7 +24,7 @@ function Header() {
         <p className="header__location">Current Location</p>
       </div>
       <div className="header__section">
-        <button type="button" className="header__button">
+        <button type="button" className="header__button" onClick={onClick}>
           + Add clothes
         </button>
         <p>Terrence Tegegne</p>

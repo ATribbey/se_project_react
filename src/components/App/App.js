@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState } from "react";
 import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.js";
@@ -11,62 +12,75 @@ function handleCardClick() {
 }
 
 function App() {
+  const [activeModal, setActiveModal] = useState("");
+
+  function handleOpenCreateModal() {
+    setActiveModal("create");
+  }
+
+  function handleCloseModal() {
+    setActiveModal("");
+  }
+
   return (
     <>
-      <Header />
+      <Header onClick={handleOpenCreateModal} />
       <Main
         weatherTemp={weatherTemp}
         modalState={modalState}
         handleCardClick={handleCardClick}
       />
-      <ModalWithForm
-        name="add-new-garment"
-        title="New Garment"
-        buttonText="Add Garment"
-      >
-        <h2 className="modal__input-title">Name</h2>
-        <input
-          className="modal__input"
-          type="text"
-          name="name"
-          placeholder="Name"
-          required
-        />
-        <h2 className="modal__input-title">Image</h2>
-        <input
-          className="modal__input"
-          type="url"
-          name="url"
-          placeholder="Image URL"
-          required
-        />
-        <fieldset className="modal__radio">
-          <h2 className="modal__input-title">Select the weather type:</h2>
+      {activeModal === "create" && (
+        <ModalWithForm
+          name="add-new-garment"
+          title="New Garment"
+          onClose={handleCloseModal}
+          buttonText="Add Garment"
+        >
+          <h2 className="modal__input-title">Name</h2>
           <input
-            type="radio"
-            name="temp"
-            id="hot"
-            className="modal__radio-button"
+            className="modal__input"
+            type="text"
+            name="name"
+            placeholder="Name"
+            required
           />
-          <label for="hot"> Hot</label>
-          <br />
+          <h2 className="modal__input-title">Image</h2>
           <input
-            type="radio"
-            name="temp"
-            id="warm"
-            className="modal__radio-button"
+            className="modal__input"
+            type="url"
+            name="url"
+            placeholder="Image URL"
+            required
           />
-          <label for="warm"> Warm</label>
-          <br />
-          <input
-            type="radio"
-            name="temp"
-            id="cold"
-            className="modal__radio-button"
-          />
-          <label for="cold"> Cold</label>
-        </fieldset>
-      </ModalWithForm>
+          <fieldset className="modal__radio">
+            <h2 className="modal__input-title">Select the weather type:</h2>
+            <input
+              type="radio"
+              name="temp"
+              id="hot"
+              className="modal__radio-button"
+            />
+            <label for="hot"> Hot</label>
+            <br />
+            <input
+              type="radio"
+              name="temp"
+              id="warm"
+              className="modal__radio-button"
+            />
+            <label for="warm"> Warm</label>
+            <br />
+            <input
+              type="radio"
+              name="temp"
+              id="cold"
+              className="modal__radio-button"
+            />
+            <label for="cold"> Cold</label>
+          </fieldset>
+        </ModalWithForm>
+      )}
       <Footer />
     </>
   );
