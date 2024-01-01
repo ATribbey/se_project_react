@@ -15,16 +15,23 @@ function App() {
 
   function handleOpenCreateModal() {
     setActiveModal("create");
+    document.addEventListener("keyup", handleEscapeClose);
   }
 
   function handleCloseModal() {
     setActiveModal("");
+    document.removeEventListener("keyup", handleEscapeClose);
+  }
+
+  function handleEscapeClose(event) {
+    if (event.key === "Escape") {
+      setActiveModal("");
+    }
   }
 
   function handleSelectedCard(card) {
     setSelectedCard(card);
     setActiveModal("preview");
-    console.log(card);
   }
 
   return (
