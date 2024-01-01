@@ -42,13 +42,28 @@ function App() {
         />
         <fieldset className="modal__radio">
           <h2 className="modal__input-title">Select the weather type:</h2>
-          <input type="radio" id="hot" className="modal__radio-button" />
+          <input
+            type="radio"
+            name="temp"
+            id="hot"
+            className="modal__radio-button"
+          />
           <label for="hot"> Hot</label>
           <br />
-          <input type="radio" id="warm" className="modal__radio-button" />
+          <input
+            type="radio"
+            name="temp"
+            id="warm"
+            className="modal__radio-button"
+          />
           <label for="warm"> Warm</label>
           <br />
-          <input type="radio" id="cold" className="modal__radio-button" />
+          <input
+            type="radio"
+            name="temp"
+            id="cold"
+            className="modal__radio-button"
+          />
           <label for="cold"> Cold</label>
         </fieldset>
       </ModalWithForm>
