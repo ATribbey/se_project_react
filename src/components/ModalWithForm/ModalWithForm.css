@@ -11,6 +11,7 @@
   bottom: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
+  /* visibility: hidden; */
 }
 
 .modal__content {
@@ -66,6 +67,11 @@
 }
 
 .modal__radio {
+  padding: 0;
+  border: none;
+}
+
+.modal__radio-button {
   margin: 0 0 8px 0;
 }
 
