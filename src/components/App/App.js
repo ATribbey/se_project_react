@@ -40,6 +40,15 @@ function App() {
           placeholder="Image URL"
           required
         />
+        <h2 className="modal__input-title">Select the weather type:</h2>
+        <input type="radio" id="hot" className="modal__radio" />
+        <label for="hot"> Hot</label>
+        <br />
+        <input type="radio" id="warm" className="modal__radio" />
+        <label for="warm"> Warm</label>
+        <br />
+        <input type="radio" id="cold" className="modal__radio" />
+        <label for="cold"> Cold</label>
       </ModalWithForm>
       <Footer />
     </>

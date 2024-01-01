@@ -8,7 +8,7 @@ function ModalWithForm({
   buttonText = "Add Garment",
 }) {
   return (
-    <div className={`modal modal__type_${name}`}>
+    <div className={`modal modal_type_${name}`}>
       <div className="modal__content">
         <h1 className="modal__title">{title}</h1>
         <button
@@ -16,7 +16,7 @@ function ModalWithForm({
           type="button"
           onClick={onClose}
         ></button>
-        <form className="modal__form">
+        <form className="modal__form" name={name}>
           {children}
           <div>
             <button className="modal__submit" type="submit">
