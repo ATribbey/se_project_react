@@ -15,13 +15,13 @@ function getDate() {
   );
 }
 
-function Header({ onClick }) {
+function Header({ location, onClick }) {
   return (
     <header className="header">
       <div className="header__section">
         <img src={logo} alt="WTWR Logo" />
         <p className="header__date">{getDate()}</p>
-        <p className="header__location">Current Location</p>
+        <p className="header__location">{location}</p>
       </div>
       <div className="header__section">
         <button type="button" className="header__button" onClick={onClick}>

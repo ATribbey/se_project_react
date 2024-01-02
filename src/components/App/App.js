@@ -1,17 +1,24 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {
+  getForecastWeather,
+  parseWeatherTemp,
+  parseWeatherLocation,
+} from "../../utils/WeatherApi.js";
 import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.js";
 import ItemModal from "../ItemModal/ItemModal.js";
 import Footer from "../Footer/Footer.js";
 
-const weatherTemp = "55°F";
-
 function App() {
   const [activeModal, setActiveModal] = useState("");
 
   const [selectedCard, setSelectedCard] = useState({});
+
+  const [temp, changeTemp] = useState(0);
+
+  const [location, changeLocation] = useState("");
 
   function handleOpenCreateModal() {
     setActiveModal("create");
@@ -44,11 +51,20 @@ function App() {
     setActiveModal("preview");
   }
 
+  useEffect(() => {
+    getForecastWeather().then((data) => {
+      const temperature = parseWeatherTemp(data);
+      changeTemp(`${temperature}°F`);
+      const locale = parseWeatherLocation(data);
+      changeLocation(locale);
+    });
+  }, []);
+
   return (
     <>
-      <Header onClick={handleOpenCreateModal} />
+      <Header location={location} onClick={handleOpenCreateModal} />
       <Main
-        weatherTemp={weatherTemp}
+        weatherTemp={temp}
         onSelectCard={handleSelectedCard}
         escClose={handleEscapeClose}
         clickClose={handleClickClose}
