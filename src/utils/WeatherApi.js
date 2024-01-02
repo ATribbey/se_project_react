@@ -1,8 +1,5 @@
-// https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
-// 14d44ec4d5240a30ba4956199a204a55
-
-const longitude = 10.9;
-const latitude = 44.34;
+const latitude = 51.24;
+const longitude = 30.03;
 const apiKey = "14d44ec4d5240a30ba4956199a204a55";
 
 export function getForecastWeather() {

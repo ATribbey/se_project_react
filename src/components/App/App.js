@@ -16,7 +16,7 @@ function App() {
 
   const [selectedCard, setSelectedCard] = useState({});
 
-  const [temp, changeTemp] = useState(0);
+  const [temp, changeTemp] = useState(`${0}°F`);
 
   const [location, changeLocation] = useState("");
 
