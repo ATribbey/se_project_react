@@ -10,7 +10,7 @@ function getDate() {
 
   return (
     <>
-      <p>{currentDate}</p>
+      <span>{currentDate}</span>
     </>
   );
 }

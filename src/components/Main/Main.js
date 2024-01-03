@@ -30,6 +30,7 @@ function Main({ weatherTemp, onSelectCard, escClose, clickClose }) {
           {filteredCards.map((item) => {
             return (
               <ItemCard
+                key={item._id}
                 item={item}
                 onSelectCard={onSelectCard}
                 escClose={escClose}
