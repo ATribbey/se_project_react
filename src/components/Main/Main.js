@@ -4,7 +4,7 @@ import WeatherCard from "../WeatherCard/WeatherCard.js";
 import ItemCard from "../ItemCard/ItemCard.js";
 import defaultClothingItems from "../../utils/DefaultClothing";
 
-function Main({ weatherTemp, onSelectCard, escClose, clickClose }) {
+function Main({ weatherTemp, onSelectCard, handleOpenItemModal }) {
   const weatherType = useMemo(() => {
     if (weatherTemp >= `${86}°F`) {
       return "hot";
@@ -26,19 +26,18 @@ function Main({ weatherTemp, onSelectCard, escClose, clickClose }) {
         <p className="itemcard__description">
           Today is {weatherTemp} / You may want to wear:
         </p>
-        <div className="itemcard">
+        <ul className="itemcard">
           {filteredCards.map((item) => {
             return (
               <ItemCard
                 key={item._id}
                 item={item}
                 onSelectCard={onSelectCard}
-                escClose={escClose}
-                clickClose={clickClose}
+                handleOpenItemModal={handleOpenItemModal}
               />
             );
           })}
-        </div>
+        </ul>
       </section>
     </>
   );

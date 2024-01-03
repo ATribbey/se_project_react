@@ -1,24 +1,19 @@
 import "./ItemCard.css";
 
-function ItemCard({ item, onSelectCard, escClose, clickClose }) {
+function ItemCard({ item, onSelectCard, handleOpenItemModal }) {
   return (
-    <>
-      <ul className="itemcard__list">
-        <li className="itemcard__card">
-          <p className="itemcard__name">{item.name}</p>
-          <img
-            className="itemcard__image"
-            src={item.link}
-            alt="Clothing Item"
-            onClick={() => {
-              onSelectCard(item);
-              document.addEventListener("keyup", escClose);
-              document.addEventListener("click", clickClose);
-            }}
-          />
-        </li>
-      </ul>
-    </>
+    <li className="itemcard__card">
+      <p className="itemcard__name">{item.name}</p>
+      <img
+        className="itemcard__image"
+        src={item.link}
+        alt={item.name}
+        onClick={() => {
+          onSelectCard(item);
+          handleOpenItemModal();
+        }}
+      />
+    </li>
   );
 }
 

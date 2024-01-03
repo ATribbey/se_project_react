@@ -6,6 +6,8 @@
   flex-wrap: wrap;
   margin: 0 20px;
   column-gap: 20px;
+  list-style-type: none;
+  padding: 0;
 }
 
 .itemcard__description {
@@ -13,11 +15,6 @@
   font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
   font-size: 20px;
   line-height: 25px;
-}
-
-.itemcard__list {
-  padding: 0;
-  list-style-type: none;
 }
 
 .itemcard__card {

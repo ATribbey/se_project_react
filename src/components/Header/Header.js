@@ -8,11 +8,7 @@ function getDate() {
     day: "numeric",
   });
 
-  return (
-    <>
-      <span>{currentDate}</span>
-    </>
-  );
+  return <span>{currentDate}</span>;
 }
 
 function Header({ location, onClick }) {

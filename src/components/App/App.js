@@ -26,6 +26,12 @@ function App() {
     document.addEventListener("click", handleClickClose);
   }
 
+  function handleOpenItemModal() {
+    setActiveModal("preview");
+    document.addEventListener("keyup", handleEscapeClose);
+    document.addEventListener("click", handleClickClose);
+  }
+
   function handleCloseModal() {
     setActiveModal("");
     document.removeEventListener("keyup", handleEscapeClose);
@@ -34,30 +40,31 @@ function App() {
 
   function handleEscapeClose(event) {
     if (event.key === "Escape") {
-      setActiveModal("");
-      document.removeEventListener("keyup", handleEscapeClose);
+      handleCloseModal();
     }
   }
 
   function handleClickClose(event) {
     if (event.target.classList.contains("modal")) {
-      setActiveModal("");
-      document.removeEventListener("click", handleClickClose);
+      handleCloseModal();
     }
   }
 
   function handleSelectedCard(card) {
     setSelectedCard(card);
-    setActiveModal("preview");
   }
 
   useEffect(() => {
-    getForecastWeather().then((data) => {
-      const temperature = parseWeatherTemp(data);
-      changeTemp(`${temperature}°F`);
-      const locale = parseWeatherLocation(data);
-      changeLocation(locale);
-    });
+    getForecastWeather()
+      .then((data) => {
+        const temperature = parseWeatherTemp(data);
+        changeTemp(`${temperature}°F`);
+        const locale = parseWeatherLocation(data);
+        changeLocation(locale);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   return (
@@ -66,8 +73,7 @@ function App() {
       <Main
         weatherTemp={temp}
         onSelectCard={handleSelectedCard}
-        escClose={handleEscapeClose}
-        clickClose={handleClickClose}
+        handleOpenItemModal={handleOpenItemModal}
       />
       {activeModal === "create" && (
         <ModalWithForm
@@ -76,16 +82,22 @@ function App() {
           onClose={handleCloseModal}
           buttonText="Add Garment"
         >
-          <h2 className="modal__input-title">Name</h2>
+          <label htmlFor="name-input" className="modal__input-title">
+            Name
+          </label>
           <input
+            id="name-input"
             className="modal__input"
             type="text"
             name="name"
             placeholder="Name"
             required
           />
-          <h2 className="modal__input-title">Image</h2>
+          <label htmlFor="url-input" className="modal__input-title">
+            Image
+          </label>
           <input
+            id="url-input"
             className="modal__input"
             type="url"
             name="url"
