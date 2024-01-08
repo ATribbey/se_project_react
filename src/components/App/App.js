@@ -16,8 +16,6 @@ function App() {
 
   const [selectedCard, setSelectedCard] = useState({});
 
-  const [checked, setChecked] = useState(false);
-
   const [temp, changeTemp] = useState(`${0}°F`);
 
   const [location, changeLocation] = useState("");

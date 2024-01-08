@@ -10,7 +10,7 @@ function Main({ weatherTemp, onSelectCard, handleOpenItemModal }) {
       return "hot";
     } else if (weatherTemp >= `${66}°F` && weatherTemp <= `${85}°F`) {
       return "warm";
-    } else {
+    } else if (weatherTemp < `${65}°F`) {
       return "cold";
     }
   }, [weatherTemp]);
