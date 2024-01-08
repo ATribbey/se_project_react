@@ -60,6 +60,7 @@
   position: absolute;
   top: 26px;
   right: 26px;
+  cursor: pointer;
 }
 
 .modal__preview-text {
