@@ -20,6 +20,8 @@ function App() {
 
   const [location, changeLocation] = useState("");
 
+  const [currentTempUnit, changeTempUnit] = React.useState("F");
+
   function handleOpenCreateModal() {
     setActiveModal("create");
     document.addEventListener("keyup", handleEscapeClose);
@@ -59,6 +61,7 @@ function App() {
       .then((data) => {
         const temperature = parseWeatherTemp(data);
         changeTemp(`${temperature}°F`);
+        console.log(temperature);
         const locale = parseWeatherLocation(data);
         changeLocation(locale);
       })
