@@ -1,23 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ToggleSwitch.css";
+import { CurrentTempUnitContext } from "../../contexts/CurrentTempUnitContext";
 
 function ToggleSwitch() {
-  const [currentTempUnit, changeTempUnit] = React.useState("F");
-
-  function handleChange() {
-    if (currentTempUnit === "F") {
-      changeTempUnit("C");
-    } else if (currentTempUnit === "C") {
-      changeTempUnit("F");
-    }
-  }
+  const { currentTempUnit, handleSwitchChange } = useContext(
+    CurrentTempUnitContext
+  );
 
   return (
     <label className="toggleswitch">
       <input
         className="toggleswitch__checkbox"
         type="checkbox"
-        onClick={handleChange}
+        onClick={handleSwitchChange}
       ></input>
       <span
         className={
