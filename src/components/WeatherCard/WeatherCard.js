@@ -14,7 +14,10 @@ function WeatherCard({ day, type, weatherTemp = "" }) {
 
   return (
     <section className="weather">
-      <p className="weather__temp">{weatherTemp}</p>
+      <p className="weather__temp">
+        {weatherTemp}
+        {currentTempUnit}
+      </p>
       <img
         src={bannerSrcUrl}
         alt="Current Weather Banner"

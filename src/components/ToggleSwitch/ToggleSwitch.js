@@ -16,24 +16,24 @@ function ToggleSwitch() {
       ></input>
       <span
         className={
-          currentTempUnit === "F"
+          currentTempUnit === "°F"
             ? "toggleswitch__slider toggleswitch__slider-F"
             : "toggleswitch__slider toggleswitch__slider-C"
         }
       ></span>
       <p
         className={`toggleswitch__unit toggleswitch__unit_F ${
-          currentTempUnit === "F" && "toggleswitch__unit_active"
+          currentTempUnit === "°F" && "toggleswitch__unit_active"
         }`}
       >
-        F
+        °F
       </p>
       <p
         className={`toggleswitch__unit toggleswitch__unit_C ${
-          currentTempUnit === "C" && "toggleswitch__unit_active"
+          currentTempUnit === "°C" && "toggleswitch__unit_active"
         }`}
       >
-        C
+        °C
       </p>
     </label>
   );

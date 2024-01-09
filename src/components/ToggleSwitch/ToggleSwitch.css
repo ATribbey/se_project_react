@@ -41,14 +41,14 @@
 
 .toggleswitch__unit_F {
   position: absolute;
-  left: 10.5px;
-  top: 6px;
+  left: 7.5px;
+  top: 7px;
 }
 
 .toggleswitch__unit_C {
   position: absolute;
-  left: 37.5px;
-  top: 6px;
+  right: 7.5px;
+  top: 7px;
 }
 
 .toggleswitch__unit_active {

@@ -18,13 +18,13 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, changeTemp] = useState(0);
   const [location, changeLocation] = useState("");
-  const [currentTempUnit, changeTempUnit] = useState("F");
+  const [currentTempUnit, changeTempUnit] = useState("°F");
 
   function handleSwitchChange() {
-    if (currentTempUnit === "F") {
-      changeTempUnit("C");
-    } else if (currentTempUnit === "C") {
-      changeTempUnit("F");
+    if (currentTempUnit === "°F") {
+      changeTempUnit("°C");
+    } else if (currentTempUnit === "°C") {
+      changeTempUnit("°F");
     }
   }
 
@@ -76,12 +76,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (currentTempUnit !== "F") {
+    if (currentTempUnit !== "°F") {
       getForecastWeather().then((data) => {
         const temperature = parseWeatherTempC(data);
         changeTemp(temperature);
       });
-    } else if (currentTempUnit !== "C") {
+    } else if (currentTempUnit !== "°C") {
       getForecastWeather().then((data) => {
         const temperature = parseWeatherTempF(data);
         changeTemp(temperature);
