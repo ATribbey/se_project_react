@@ -16,7 +16,7 @@ import Footer from "../Footer/Footer.js";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [temp, changeTemp] = useState(`${0}°F`);
+  const [temp, changeTemp] = useState(0);
   const [location, changeLocation] = useState("");
   const [currentTempUnit, changeTempUnit] = useState("F");
 
@@ -66,7 +66,7 @@ function App() {
     getForecastWeather()
       .then((data) => {
         const temperature = parseWeatherTempF(data);
-        changeTemp(`${temperature}°F`);
+        changeTemp(temperature);
         const locale = parseWeatherLocation(data);
         changeLocation(locale);
       })
