@@ -18,7 +18,7 @@ export function getForecastWeather() {
 
 export function parseWeatherTemp(data) {
   const temp = data.main.temp;
-  return Math.ceil(temp);
+  return Math.round(temp);
 }
 
 export function parseWeatherLocation(data) {

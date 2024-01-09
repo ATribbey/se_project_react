@@ -14,13 +14,9 @@ import Footer from "../Footer/Footer.js";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
-
   const [selectedCard, setSelectedCard] = useState({});
-
   const [temp, changeTemp] = useState(`${0}°F`);
-
   const [location, changeLocation] = useState("");
-
   const [currentTempUnit, changeTempUnit] = useState("F");
 
   function handleSwitchChange() {
