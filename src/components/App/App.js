@@ -75,6 +75,20 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    if (currentTempUnit !== "F") {
+      getForecastWeather().then((data) => {
+        const temperature = parseWeatherTempC(data);
+        changeTemp(temperature);
+      });
+    } else if (currentTempUnit !== "C") {
+      getForecastWeather().then((data) => {
+        const temperature = parseWeatherTempF(data);
+        changeTemp(temperature);
+      });
+    }
+  }, [currentTempUnit]);
+
   return (
     <>
       <CurrentTempUnitContext.Provider
