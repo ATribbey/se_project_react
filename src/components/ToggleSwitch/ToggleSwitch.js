@@ -17,7 +17,7 @@ function ToggleSwitch() {
       <span
         className={
           currentTempUnit === "°F"
-            ? "toggleswitch__slider toggleswitch__slider-F"
+            ? "toggleswitch__slider"
             : "toggleswitch__slider toggleswitch__slider-C"
         }
       ></span>
