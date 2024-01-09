@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import { CurrentTempUnitContext } from "../../contexts/CurrentTempUnitContext.js";
 import {
   getForecastWeather,
-  parseWeatherTemp,
+  parseWeatherTempF,
+  parseWeatherTempC,
   parseWeatherLocation,
 } from "../../utils/WeatherApi.js";
 import Header from "../Header/Header.js";
@@ -64,9 +65,8 @@ function App() {
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
-        const temperature = parseWeatherTemp(data);
+        const temperature = parseWeatherTempF(data);
         changeTemp(`${temperature}°F`);
-        console.log(temperature);
         const locale = parseWeatherLocation(data);
         changeLocation(locale);
       })

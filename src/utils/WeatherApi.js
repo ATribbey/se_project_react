@@ -16,8 +16,13 @@ export function getForecastWeather() {
   return weatherApi;
 }
 
-export function parseWeatherTemp(data) {
+export function parseWeatherTempF(data) {
   const temp = data.main.temp;
+  return Math.round(temp);
+}
+
+export function parseWeatherTempC(data) {
+  const temp = ((data.main.temp - 32) * 5) / 9;
   return Math.round(temp);
 }
 
