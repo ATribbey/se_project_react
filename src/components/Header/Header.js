@@ -2,6 +2,7 @@ import "./Header.css";
 import logo from "../../images/logo.svg";
 import avatar from "../../images/user-avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch.js";
+import { Link } from "react-router-dom";
 
 function getDate() {
   const currentDate = new Date().toLocaleString("default", {
@@ -16,7 +17,9 @@ function Header({ location, onClick }) {
   return (
     <header className="header">
       <div className="header__section">
-        <img src={logo} alt="WTWR Logo" />
+        <Link to="/">
+          <img className="header__logo" src={logo} alt="WTWR Logo" />
+        </Link>
         <p className="header__date">{getDate()}</p>
         <p className="header__location">{location}</p>
       </div>
@@ -25,8 +28,10 @@ function Header({ location, onClick }) {
         <button type="button" className="header__button" onClick={onClick}>
           + Add clothes
         </button>
-        <p>Terrence Tegegne</p>
-        <img src={avatar} alt="Profile Avatar" />
+        <Link className="header__user-info" to="/profile">
+          <p className="header__user-name">Terrence Tegegne</p>
+          <img src={avatar} alt="Profile Avatar" />
+        </Link>
       </div>
     </header>
   );

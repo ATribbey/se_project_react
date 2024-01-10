@@ -5,6 +5,10 @@ p {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -22,8 +26,22 @@ p {
   font-size: 20px;
 }
 
+.header__logo {
+  cursor: pointer;
+}
+
 .header__button {
   border: none;
   background-color: white;
   cursor: pointer;
+}
+
+.header__user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__user-name {
+  color: #000;
 }
