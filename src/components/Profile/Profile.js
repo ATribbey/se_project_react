@@ -4,7 +4,7 @@ import avatar from "../../images/user-avatar.svg";
 import ItemCard from "../ItemCard/ItemCard";
 import defaultClothingItems from "../../utils/DefaultClothing";
 
-function Profile({ onSelectCard, handleOpenItemModal }) {
+function Profile({ onSelectCard, handleOpenItemModal, onClick }) {
   return (
     <div className="profile">
       <div className="profile__user-info">
@@ -20,7 +20,9 @@ function Profile({ onSelectCard, handleOpenItemModal }) {
       <div className="profile__clothing">
         <div className="profile__clothing-header">
           <p className="profile__clothing-title">Your Items</p>
-          <button className="profile__clothing-button">+ Add New</button>
+          <button className="profile__clothing-button" onClick={onClick}>
+            + Add New
+          </button>
         </div>
         <div className="profile__items">
           <ul className="itemcard">

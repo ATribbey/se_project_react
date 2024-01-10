@@ -110,6 +110,7 @@ function App() {
             <Profile
               onSelectCard={handleSelectedCard}
               handleOpenItemModal={handleOpenItemModal}
+              onClick={handleOpenCreateModal}
             />
           </Route>
         </Switch>
