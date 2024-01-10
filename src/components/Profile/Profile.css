@@ -3,12 +3,14 @@
 
 .profile {
   margin: 0 40px;
+  display: flex;
 }
 
 .profile__user-info {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-right: 116px;
 }
 
 .profile__user-avatar {
@@ -20,4 +22,36 @@
   font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
   font-size: 20px;
   line-height: 25px;
+}
+
+.profile__clothing {
+  display: flex;
+}
+
+.profile__clothing-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile__clothing-title {
+  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.profile__clothing-button {
+  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+  opacity: 0.6;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.profile__items {
+}
+
+.profile__items-list {
 }

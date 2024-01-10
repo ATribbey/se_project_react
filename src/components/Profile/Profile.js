@@ -15,6 +15,15 @@ function Profile() {
         ></img>
         <p className="profile__user-name">Terrence Tegegne</p>
       </div>
+      <div className="profile__clothing">
+        <div className="profile__clothing-header">
+          <p className="profile__clothing-title">Your Items</p>
+          <button className="profile__clothing-button">+ Add New</button>
+        </div>
+        <div className="profile__items">
+          <ul className="profile__items-list"></ul>
+        </div>
+      </div>
     </div>
   );
 }
