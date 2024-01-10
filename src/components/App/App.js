@@ -107,7 +107,10 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-            <Profile />
+            <Profile
+              onSelectCard={handleSelectedCard}
+              handleOpenItemModal={handleOpenItemModal}
+            />
           </Route>
         </Switch>
         {activeModal === "create" && (

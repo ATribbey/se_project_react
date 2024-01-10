@@ -4,13 +4,20 @@
 .profile {
   margin: 0 40px;
   display: flex;
+  padding: 20px 0 0 0;
 }
 
 .profile__user-info {
   display: flex;
+  align-items: flex-start;
+  margin-right: 67px;
+}
+
+.profile__user-info-container {
+  display: flex;
   align-items: center;
   gap: 16px;
-  margin-right: 116px;
+  white-space: nowrap;
 }
 
 .profile__user-avatar {
@@ -26,6 +33,8 @@
 
 .profile__clothing {
   display: flex;
+  flex-direction: column;
+  margin-top: 15px;
 }
 
 .profile__clothing-header {
@@ -51,6 +60,7 @@
 }
 
 .profile__items {
+  row-gap: 20px;
 }
 
 .profile__items-list {

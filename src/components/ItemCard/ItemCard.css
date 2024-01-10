@@ -5,7 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 20px;
-  column-gap: 20px;
+  gap: 20px;
   list-style-type: none;
   padding: 0;
 }

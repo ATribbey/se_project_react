@@ -20,8 +20,9 @@ function Header({ location, onClick }) {
         <Link to="/">
           <img className="header__logo" src={logo} alt="WTWR Logo" />
         </Link>
-        <p className="header__date">{getDate()}</p>
-        <p className="header__location">{location}</p>
+        <p>
+          {getDate()}, {location}
+        </p>
       </div>
       <div className="header__section">
         <ToggleSwitch />
