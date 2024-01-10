@@ -33,7 +33,7 @@ function Main({ weatherTemp, onSelectCard, handleOpenItemModal }) {
   return (
     <>
       <WeatherCard day={false} type="clear" weatherTemp={weatherTemp} />
-      <section id="clothing-card-section">
+      <section className="main__section" id="clothing-card-section">
         <p className="itemcard__description">
           Today is {weatherTemp}
           {currentTempUnit} / You may want to wear:
