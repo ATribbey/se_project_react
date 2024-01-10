@@ -11,7 +11,10 @@ import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.js";
 import ItemModal from "../ItemModal/ItemModal.js";
+import Profile from "../Profile/Profile.js";
 import Footer from "../Footer/Footer.js";
+import { Switch } from "react-router-dom/cjs/react-router-dom.min.js";
+import { Route } from "react-router-dom";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -95,12 +98,18 @@ function App() {
         value={{ currentTempUnit, handleSwitchChange }}
       >
         <Header location={location} onClick={handleOpenCreateModal} />
-
-        <Main
-          weatherTemp={temp}
-          onSelectCard={handleSelectedCard}
-          handleOpenItemModal={handleOpenItemModal}
-        />
+        <Switch>
+          <Route exact path="/">
+            <Main
+              weatherTemp={temp}
+              onSelectCard={handleSelectedCard}
+              handleOpenItemModal={handleOpenItemModal}
+            />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+        </Switch>
         {activeModal === "create" && (
           <ModalWithForm
             name="add-new-garment"
@@ -161,6 +170,7 @@ function App() {
         {activeModal === "preview" && (
           <ItemModal cardObj={selectedCard} onClose={handleCloseModal} />
         )}
+
         <Footer />
       </CurrentTempUnitContext.Provider>
     </>
