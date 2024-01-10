@@ -45,3 +45,8 @@ a {
 .header__user-name {
   color: #000;
 }
+
+.hedaer__user-avatar {
+  width: 40px;
+  height: 40px;
+}

@@ -1,2 +1,23 @@
 @import url(../../vendor/fonts.css);
 @import url(../../vendor/normalize.css);
+
+.profile {
+  margin: 0 40px;
+}
+
+.profile__user-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile__user-avatar {
+  width: 56px;
+  height: 56px;
+}
+
+.profile__user-name {
+  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+}
