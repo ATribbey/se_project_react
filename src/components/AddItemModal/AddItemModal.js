@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function AddItemModal({ onClose, onAddItem, isOpen }) {
   const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
+  const [link, setUrl] = useState("");
   const [weather, setWeather] = useState("");
 
   function handleNameChange(event) {
@@ -20,7 +20,7 @@ function AddItemModal({ onClose, onAddItem, isOpen }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    onAddItem({ name, url, weather });
+    onAddItem({ name, link, weather });
   }
 
   return (
@@ -58,7 +58,7 @@ function AddItemModal({ onClose, onAddItem, isOpen }) {
         placeholder="Image URL"
         minLength={1}
         required
-        value={url}
+        value={link}
         onChange={handleUrlChange}
       />
       <fieldset className="modal__radio">

@@ -2,7 +2,7 @@ import "./Main.css";
 import { useContext, useMemo } from "react";
 import WeatherCard from "../WeatherCard/WeatherCard.js";
 import ItemCard from "../ItemCard/ItemCard.js";
-import defaultClothingItems from "../../utils/DefaultClothing";
+import clothingItems from "../../utils/clothingItems.js";
 import { CurrentTempUnitContext } from "../../contexts/CurrentTempUnitContext";
 
 function Main({ weatherTemp, onSelectCard, handleOpenItemModal }) {
@@ -26,7 +26,7 @@ function Main({ weatherTemp, onSelectCard, handleOpenItemModal }) {
     }
   }, [weatherTemp, currentTempUnit]);
 
-  const filteredCards = defaultClothingItems.filter((item) => {
+  const filteredCards = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
   });
 

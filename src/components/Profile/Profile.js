@@ -2,7 +2,7 @@ import React from "react";
 import "./Profile.css";
 import avatar from "../../images/user-avatar.svg";
 import ItemCard from "../ItemCard/ItemCard";
-import defaultClothingItems from "../../utils/DefaultClothing";
+import clothingItems from "../../utils/clothingItems.js";
 
 function Profile({ onSelectCard, handleOpenItemModal, onClick }) {
   return (
@@ -26,7 +26,7 @@ function Profile({ onSelectCard, handleOpenItemModal, onClick }) {
         </div>
         <div className="profile__items">
           <ul className="itemcard">
-            {defaultClothingItems.map((item) => {
+            {clothingItems.map((item) => {
               return (
                 <ItemCard
                   key={item._id}
