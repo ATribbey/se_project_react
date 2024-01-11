@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
 import { CurrentTempUnitContext } from "../../contexts/CurrentTempUnitContext.js";
 import {
   getForecastWeather,
@@ -13,8 +14,6 @@ import AddItemModal from "../AddItemModal/AddItemModal.js";
 import ItemModal from "../ItemModal/ItemModal.js";
 import Profile from "../Profile/Profile.js";
 import Footer from "../Footer/Footer.js";
-import { Switch } from "react-router-dom/cjs/react-router-dom.min.js";
-import { Route } from "react-router-dom";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
