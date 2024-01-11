@@ -65,9 +65,8 @@ function App() {
     setSelectedCard(card);
   }
 
-  function onAddItem(event) {
-    event.preventDefault();
-    console.log(event);
+  function onAddItem(values) {
+    console.log(values);
   }
 
   useEffect(() => {

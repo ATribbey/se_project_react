@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function AddItemModal({ onClose, onAddItem, isOpen }) {
+  const [name, setName] = useState("");
+  const [url, setUrl] = useState("");
+
+  function handleNameChange(event) {
+    setName(event.target.value);
+  }
+
+  function handleUrlChange(event) {
+    setUrl(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onAddItem({ name, url });
+  }
+
   return (
     <ModalWithForm
       name="add-new-garment"
@@ -9,7 +25,7 @@ function AddItemModal({ onClose, onAddItem, isOpen }) {
       onClose={onClose}
       buttonText="Add Garment"
       isOpen={isOpen}
-      onSubmit={onAddItem}
+      onSubmit={handleSubmit}
     >
       <label htmlFor="name-input" className="modal__input-title">
         Name
@@ -20,7 +36,11 @@ function AddItemModal({ onClose, onAddItem, isOpen }) {
         type="text"
         name="name"
         placeholder="Name"
+        minLength={1}
+        maxLength={30}
         required
+        value={name}
+        onChange={handleNameChange}
       />
       <label htmlFor="url-input" className="modal__input-title">
         Image
@@ -31,7 +51,10 @@ function AddItemModal({ onClose, onAddItem, isOpen }) {
         type="url"
         name="url"
         placeholder="Image URL"
+        minLength={1}
         required
+        value={url}
+        onChange={handleUrlChange}
       />
       <fieldset className="modal__radio">
         <h2 className="modal__input-title">Select the weather type:</h2>
