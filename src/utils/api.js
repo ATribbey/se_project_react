@@ -7,6 +7,8 @@
 //     });
 // //   }
 
+// json-server --watch db.json --port 3001
+
 const baseUrl = "http://localhost:3001";
 const baseHeader = "Content-Type: application/json";
 
