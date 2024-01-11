@@ -4,6 +4,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 function AddItemModal({ onClose, onAddItem, isOpen }) {
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
+  const [weather, setWeather] = useState("");
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -13,9 +14,13 @@ function AddItemModal({ onClose, onAddItem, isOpen }) {
     setUrl(event.target.value);
   }
 
+  function handleWeatherChange(event) {
+    setWeather(event.target.id);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
-    onAddItem({ name, url });
+    onAddItem({ name, url, weather });
   }
 
   return (
@@ -63,6 +68,7 @@ function AddItemModal({ onClose, onAddItem, isOpen }) {
           name="temp"
           id="hot"
           className="modal__radio-button"
+          onChange={handleWeatherChange}
         />
         <label htmlFor="hot"> Hot</label>
         <br />
@@ -71,6 +77,7 @@ function AddItemModal({ onClose, onAddItem, isOpen }) {
           name="temp"
           id="warm"
           className="modal__radio-button"
+          onChange={handleWeatherChange}
         />
         <label htmlFor="warm"> Warm</label>
         <br />
@@ -79,6 +86,7 @@ function AddItemModal({ onClose, onAddItem, isOpen }) {
           name="temp"
           id="cold"
           className="modal__radio-button"
+          onChange={handleWeatherChange}
         />
         <label htmlFor="cold"> Cold</label>
       </fieldset>
