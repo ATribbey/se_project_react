@@ -86,13 +86,16 @@ function App() {
   useEffect(() => {
     getClothingItems()
       .then((items) => {
-        // setClothingItems(items);
-        console.log(typeof items);
+        setClothingItems(items);
       })
       .catch((err) => {
         console.error(err);
       });
-  });
+  }, []);
+
+  useEffect(() => {
+    console.log(clothingItems);
+  }, [clothingItems]);
 
   useEffect(() => {
     if (currentTempUnit !== "°F") {

@@ -2,9 +2,14 @@ import React from "react";
 import "./Profile.css";
 import avatar from "../../images/user-avatar.svg";
 import ItemCard from "../ItemCard/ItemCard";
-import clothingItems from "../../utils/clothingItems.js";
+// import clothingItems from "../../utils/clothingItems.js";
 
-function Profile({ onSelectCard, handleOpenItemModal, onClick, items }) {
+function Profile({
+  onSelectCard,
+  handleOpenItemModal,
+  onClick,
+  clothingItems,
+}) {
   return (
     <div className="profile">
       <div className="profile__user-info">

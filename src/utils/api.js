@@ -22,6 +22,6 @@ export function getClothingItems() {
   return fetch(`${baseUrl}/items`, {
     method: "GET",
   }).then((res) => {
-    checkResponse(res);
+    return checkResponse(res);
   });
 }
