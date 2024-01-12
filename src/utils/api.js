@@ -1,16 +1,3 @@
-// addNewCard({ name, link }) {
-//     return fetch(this._cardPath, {
-//       method: "POST",
-//       headers: this._baseHeaders,
-//       body: JSON.stringify({
-//         name: name,
-//         link: link,
-//       }),
-//     }).then((res) => {
-//       return this._checkResponse(res);
-//     });
-//   }
-
 //   deleteCard(cardId) {
 //     return fetch(`${this._cardPath}/${cardId}`, {
 //       method: "DELETE",
@@ -49,6 +36,15 @@ export function postClothingItem({ name, imageUrl, weather }) {
       imageURL: imageUrl,
       weather: weather,
     }),
+  }).then((res) => {
+    return checkResponse(res);
+  });
+}
+
+export function deleteClothingItem({ cardId }) {
+  return fetch(`${baseUrl}/items/${cardId}`, {
+    method: "DELETE",
+    headers: baseHeaders,
   }).then((res) => {
     return checkResponse(res);
   });

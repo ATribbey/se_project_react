@@ -8,7 +8,11 @@ import {
   parseWeatherTempC,
   parseWeatherLocation,
 } from "../../utils/WeatherApi.js";
-import { getClothingItems, postClothingItem } from "../../utils/api.js";
+import {
+  getClothingItems,
+  postClothingItem,
+  deleteClothingItem,
+} from "../../utils/api.js";
 import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
@@ -142,9 +146,7 @@ function App() {
           <ItemModal
             cardObj={selectedCard}
             onClose={handleCloseModal}
-            handleDelete={() => {
-              console.log("Hello I am delete button");
-            }}
+            handleDelete={deleteClothingItem}
           />
         )}
 

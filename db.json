@@ -120,15 +120,15 @@
       "id": "a895"
     },
     {
-      "id": "2dd2",
+      "_id": "2dd2",
       "name": "Shirt",
-      "imageURL": "https://dictionary.cambridge.org/us/images/thumb/shirt_noun_002_33400.jpg?version=5.0.370",
+      "imageUrl": "https://dictionary.cambridge.org/us/images/thumb/shirt_noun_002_33400.jpg?version=5.0.370",
       "weather": "hot"
     },
     {
-      "id": "afcb",
+      "_id": "afcb",
       "name": "North Face Jacket",
-      "imageURL": "https://images.stockx.com/images/The-North-Face-1996-Retro-Eco-Nuptse-Packable-Jacket-Asia-Sizing-Black.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1646680466",
+      "imageUrl": "https://images.stockx.com/images/The-North-Face-1996-Retro-Eco-Nuptse-Packable-Jacket-Asia-Sizing-Black.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1646680466",
       "weather": "cold"
     }
   ]
