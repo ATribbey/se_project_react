@@ -2,7 +2,6 @@ import React from "react";
 import "./Profile.css";
 import avatar from "../../images/user-avatar.svg";
 import ItemCard from "../ItemCard/ItemCard";
-// import clothingItems from "../../utils/clothingItems.js";
 
 function Profile({
   onSelectCard,
