@@ -1,12 +1,3 @@
-//   deleteCard(cardId) {
-//     return fetch(`${this._cardPath}/${cardId}`, {
-//       method: "DELETE",
-//       headers: this._baseHeaders,
-//     }).then((res) => {
-//       return this._checkResponse(res);
-//     });
-//   }
-
 // json-server --watch db.json --port 3001
 
 const baseUrl = "http://localhost:3001";
