@@ -1,7 +1,9 @@
 import "../ModalWithForm/Modal.css";
 
 function ItemModal({ cardObj, onClose, handleDelete }) {
-  const cardId = `:${cardObj._id}`;
+  const cardId = cardObj._id;
+
+  console.log(cardId);
 
   return (
     <div className="modal">
@@ -25,7 +27,7 @@ function ItemModal({ cardObj, onClose, handleDelete }) {
             <button
               className="modal__preview-deletebutton"
               onClick={() => {
-                handleDelete({ cardId });
+                handleDelete(cardId);
               }}
             >
               Delete item

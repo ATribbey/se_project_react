@@ -28,6 +28,16 @@ function App() {
   const [currentTempUnit, changeTempUnit] = useState("°F");
   const [clothingItems, setClothingItems] = useState([]);
 
+  function fetchClothes() {
+    getClothingItems()
+      .then((items) => {
+        setClothingItems(items);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   function handleSwitchChange() {
     if (currentTempUnit === "°F") {
       changeTempUnit("°C");
@@ -72,6 +82,8 @@ function App() {
 
   function onAddItem(values) {
     postClothingItem(values);
+    fetchClothes();
+    handleCloseModal();
   }
 
   useEffect(() => {
@@ -88,14 +100,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getClothingItems()
-      .then((items) => {
-        console.log(items);
-        setClothingItems(items);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    fetchClothes();
   }, []);
 
   useEffect(() => {

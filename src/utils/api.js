@@ -32,7 +32,7 @@ export function postClothingItem({ name, imageUrl, weather }) {
   });
 }
 
-export function deleteClothingItem({ cardId }) {
+export function deleteClothingItem(cardId) {
   return fetch(`${baseUrl}/items/${cardId}`, {
     method: "DELETE",
     headers: baseHeaders,
