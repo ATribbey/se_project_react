@@ -8,6 +8,7 @@ import {
   parseWeatherTempC,
   parseWeatherLocation,
 } from "../../utils/WeatherApi.js";
+import { getClothingItems } from "../../utils/api.js";
 import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
@@ -21,6 +22,7 @@ function App() {
   const [temp, changeTemp] = useState(0);
   const [location, changeLocation] = useState("");
   const [currentTempUnit, changeTempUnit] = useState("°F");
+  const [clothingItems, setClothingItems] = useState([]);
 
   function handleSwitchChange() {
     if (currentTempUnit === "°F") {
@@ -82,6 +84,17 @@ function App() {
   }, []);
 
   useEffect(() => {
+    getClothingItems()
+      .then((items) => {
+        // setClothingItems(items);
+        console.log(typeof items);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
+
+  useEffect(() => {
     if (currentTempUnit !== "°F") {
       getForecastWeather().then((data) => {
         const temperature = parseWeatherTempC(data);
@@ -107,6 +120,7 @@ function App() {
               weatherTemp={temp}
               onSelectCard={handleSelectedCard}
               handleOpenItemModal={handleOpenItemModal}
+              items={clothingItems}
             />
           </Route>
           <Route path="/profile">
@@ -114,6 +128,7 @@ function App() {
               onSelectCard={handleSelectedCard}
               handleOpenItemModal={handleOpenItemModal}
               onClick={handleOpenCreateModal}
+              items={clothingItems}
             />
           </Route>
         </Switch>

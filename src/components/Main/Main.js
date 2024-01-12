@@ -5,7 +5,7 @@ import ItemCard from "../ItemCard/ItemCard.js";
 import clothingItems from "../../utils/clothingItems.js";
 import { CurrentTempUnitContext } from "../../contexts/CurrentTempUnitContext";
 
-function Main({ weatherTemp, onSelectCard, handleOpenItemModal }) {
+function Main({ weatherTemp, onSelectCard, handleOpenItemModal, items }) {
   const { currentTempUnit } = useContext(CurrentTempUnitContext);
 
   const weatherType = useMemo(() => {

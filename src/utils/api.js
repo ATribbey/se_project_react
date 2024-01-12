@@ -10,7 +10,6 @@
 // json-server --watch db.json --port 3001
 
 const baseUrl = "http://localhost:3001";
-const baseHeader = "Content-Type: application/json";
 
 function checkResponse(res) {
   if (res.ok) {
@@ -22,7 +21,6 @@ function checkResponse(res) {
 export function getClothingItems() {
   return fetch(`${baseUrl}/items`, {
     method: "GET",
-    headers: baseHeader,
   }).then((res) => {
     checkResponse(res);
   });

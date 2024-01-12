@@ -4,7 +4,7 @@ import avatar from "../../images/user-avatar.svg";
 import ItemCard from "../ItemCard/ItemCard";
 import clothingItems from "../../utils/clothingItems.js";
 
-function Profile({ onSelectCard, handleOpenItemModal, onClick }) {
+function Profile({ onSelectCard, handleOpenItemModal, onClick, items }) {
   return (
     <div className="profile">
       <div className="profile__user-info">
