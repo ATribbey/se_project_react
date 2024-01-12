@@ -82,8 +82,6 @@ function App() {
 
   function onAddItem(values) {
     postClothingItem(values);
-    fetchClothes();
-    handleCloseModal();
   }
 
   useEffect(() => {

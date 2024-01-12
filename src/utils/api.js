@@ -24,7 +24,7 @@ export function postClothingItem({ name, imageUrl, weather }) {
     headers: baseHeaders,
     body: JSON.stringify({
       name: name,
-      imageURL: imageUrl,
+      imageUrl: imageUrl,
       weather: weather,
     }),
   }).then((res) => {
