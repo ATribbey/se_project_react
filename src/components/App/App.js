@@ -8,7 +8,7 @@ import {
   parseWeatherTempC,
   parseWeatherLocation,
 } from "../../utils/WeatherApi.js";
-import { getClothingItems } from "../../utils/api.js";
+import { getClothingItems, postClothingItem } from "../../utils/api.js";
 import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
@@ -67,7 +67,7 @@ function App() {
   }
 
   function onAddItem(values) {
-    console.log(values);
+    postClothingItem(values);
   }
 
   useEffect(() => {
