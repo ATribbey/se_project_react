@@ -1,6 +1,6 @@
 import "../ModalWithForm/Modal.css";
 
-function ItemModal({ cardObj, onClose }) {
+function ItemModal({ cardObj, onClose, handleDelete }) {
   return (
     <div className="modal">
       <div className="modal__content">
@@ -15,8 +15,18 @@ function ItemModal({ cardObj, onClose }) {
           alt={cardObj.name}
         />
         <div className="modal__preview-text-container">
-          <p className="modal__preview-text">{cardObj.name}</p>
-          <p className="modal__preview-text">Weather: {cardObj.weather}</p>
+          <div id="preview-group-divider">
+            <p className="modal__preview-text">{cardObj.name}</p>
+            <p className="modal__preview-text">Weather: {cardObj.weather}</p>
+          </div>
+          <div id="preview-group-divider">
+            <button
+              className="modal__preview-deletebutton"
+              onClick={handleDelete}
+            >
+              Delete item
+            </button>
+          </div>
         </div>
       </div>
     </div>

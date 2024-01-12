@@ -139,7 +139,13 @@ function App() {
           />
         )}
         {activeModal === "preview" && (
-          <ItemModal cardObj={selectedCard} onClose={handleCloseModal} />
+          <ItemModal
+            cardObj={selectedCard}
+            onClose={handleCloseModal}
+            handleDelete={() => {
+              console.log("Hello I am delete button");
+            }}
+          />
         )}
 
         <Footer />

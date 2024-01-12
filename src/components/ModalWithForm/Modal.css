@@ -64,14 +64,24 @@
 }
 
 .modal__preview-text {
-  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  line-height: 24px;
-  padding: 0 32px 12px 32px;
+  margin: 0 32px 12px 32px;
 }
 
 .modal__preview-text-container {
+  font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  justify-content: space-between;
   margin: 15px 0 20px 0;
+}
+
+.modal__preview-deletebutton {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  color: #ff4d00;
+  margin-right: 32px;
 }
 
 .modal__form {
