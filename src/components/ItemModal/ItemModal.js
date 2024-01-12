@@ -9,7 +9,11 @@ function ItemModal({ cardObj, onClose }) {
           type="button"
           onClick={onClose}
         ></button>
-        <img className="modal__preview" src={cardObj.link} alt={cardObj.name} />
+        <img
+          className="modal__preview"
+          src={cardObj.imageUrl}
+          alt={cardObj.name}
+        />
         <div className="modal__preview-text-container">
           <p className="modal__preview-text">{cardObj.name}</p>
           <p className="modal__preview-text">Weather: {cardObj.weather}</p>

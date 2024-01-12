@@ -94,10 +94,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(clothingItems);
-  }, [clothingItems]);
-
-  useEffect(() => {
     if (currentTempUnit !== "°F") {
       getForecastWeather().then((data) => {
         const temperature = parseWeatherTempC(data);
@@ -123,7 +119,7 @@ function App() {
               weatherTemp={temp}
               onSelectCard={handleSelectedCard}
               handleOpenItemModal={handleOpenItemModal}
-              items={clothingItems}
+              clothingItems={clothingItems}
             />
           </Route>
           <Route path="/profile">
@@ -131,7 +127,7 @@ function App() {
               onSelectCard={handleSelectedCard}
               handleOpenItemModal={handleOpenItemModal}
               onClick={handleOpenCreateModal}
-              items={clothingItems}
+              clothingItems={clothingItems}
             />
           </Route>
         </Switch>

@@ -6,7 +6,7 @@ function ItemCard({ item, onSelectCard, handleOpenItemModal }) {
       <p className="itemcard__name">{item.name}</p>
       <img
         className="itemcard__image"
-        src={item.link}
+        src={item.imageUrl}
         alt={item.name}
         onClick={() => {
           onSelectCard(item);
