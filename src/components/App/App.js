@@ -90,6 +90,7 @@ function App() {
   useEffect(() => {
     getClothingItems()
       .then((items) => {
+        console.log(items);
         setClothingItems(items);
       })
       .catch((err) => {

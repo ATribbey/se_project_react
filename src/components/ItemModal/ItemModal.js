@@ -1,6 +1,8 @@
 import "../ModalWithForm/Modal.css";
 
 function ItemModal({ cardObj, onClose, handleDelete }) {
+  const cardId = `:${cardObj._id}`;
+
   return (
     <div className="modal">
       <div className="modal__content">
@@ -22,7 +24,9 @@ function ItemModal({ cardObj, onClose, handleDelete }) {
           <div id="preview-group-divider">
             <button
               className="modal__preview-deletebutton"
-              onClick={handleDelete}
+              onClick={() => {
+                handleDelete({ cardId });
+              }}
             >
               Delete item
             </button>
