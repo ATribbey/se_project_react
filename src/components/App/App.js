@@ -93,9 +93,9 @@ function App() {
 
   function onDeleteItem(cardId) {
     deleteClothingItem(cardId)
-      .then((deletedCard) => {
+      .then(() => {
         const newArr = clothingItems.filter((card) => {
-          return card._id !== deletedCard._id;
+          return card._id !== cardId;
         });
         setClothingItems(newArr);
         setActiveModal("");
