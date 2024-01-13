@@ -81,7 +81,20 @@ function App() {
   }
 
   function onAddItem(values) {
-    postClothingItem(values);
+    postClothingItem(values)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        setActiveModal("");
+      })
+      .catch((err) => {
+        console.error(`Unable to add clothing item due to: ${err}`);
+      });
+  }
+
+  function onDeleteItem(cardId) {
+    deleteClothingItem(cardId).then((item) => {
+      setActiveModal("");
+    });
   }
 
   useEffect(() => {
@@ -150,7 +163,7 @@ function App() {
           <ItemModal
             cardObj={selectedCard}
             onClose={handleCloseModal}
-            handleDelete={deleteClothingItem}
+            handleDelete={onDeleteItem}
           />
         )}
 
