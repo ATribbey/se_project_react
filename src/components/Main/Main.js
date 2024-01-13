@@ -2,7 +2,7 @@ import "./Main.css";
 import { useContext, useMemo } from "react";
 import WeatherCard from "../WeatherCard/WeatherCard.js";
 import ItemCard from "../ItemCard/ItemCard.js";
-import { CurrentTempUnitContext } from "../../contexts/CurrentTempUnitContext";
+import { CurrentTempUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 
 function Main({
   weatherTemp,
