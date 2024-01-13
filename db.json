@@ -118,6 +118,12 @@
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09",
       "id": "a895"
+    },
+    {
+      "name": "North Face Jacket",
+      "imageUrl": "https://images.stockx.com/images/The-North-Face-1996-Retro-Eco-Nuptse-Packable-Jacket-Asia-Sizing-Black.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1646680466",
+      "weather": "cold",
+      "_id": 17
     }
   ]
 }

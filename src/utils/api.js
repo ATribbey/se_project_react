@@ -1,4 +1,5 @@
 // json-server --watch db.json --port 3001
+// json-server --watch db.json --id _id --port 3001
 
 const baseUrl = "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };

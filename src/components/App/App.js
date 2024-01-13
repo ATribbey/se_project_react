@@ -95,8 +95,8 @@ function App() {
     deleteClothingItem(cardId)
       .then((deletedCard) => {
         const newArr = clothingItems.filter((card) => {
-          return card.id !== deletedCard.id;
-        }, deletedCard);
+          return card._id !== deletedCard._id;
+        });
         setClothingItems(newArr);
         setActiveModal("");
       })

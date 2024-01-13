@@ -1,7 +1,7 @@
 import "../ModalWithForm/Modal.css";
 
 function ItemModal({ cardObj, onClose, handleDelete }) {
-  const cardId = cardObj.id;
+  const cardId = cardObj._id;
 
   return (
     <div className="modal">
