@@ -92,9 +92,17 @@ function App() {
   }
 
   function onDeleteItem(cardId) {
-    deleteClothingItem(cardId).then((item) => {
-      setActiveModal("");
-    });
+    deleteClothingItem(cardId)
+      .then((deletedCard) => {
+        const newArr = clothingItems.filter((card) => {
+          return card.id !== deletedCard.id;
+        }, deletedCard);
+        setClothingItems(newArr);
+        setActiveModal("");
+      })
+      .catch((err) => {
+        console.error(`Unable to delete clothing item due to: ${err}`);
+      });
   }
 
   useEffect(() => {

@@ -3,8 +3,6 @@ import "../ModalWithForm/Modal.css";
 function ItemModal({ cardObj, onClose, handleDelete }) {
   const cardId = cardObj.id;
 
-  console.log(cardId);
-
   return (
     <div className="modal">
       <div className="modal__content">
