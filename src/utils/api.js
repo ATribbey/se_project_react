@@ -1,14 +1,14 @@
-// json-server --watch db.json --port 3001
 // json-server --watch db.json --id _id --port 3001
 
 const baseUrl = "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };
 
-function checkResponse(res) {
+export function checkResponse(res) {
   if (res.ok) {
     return res.json();
+  } else {
+    Promise.reject(`Error: ${res.status}`);
   }
-  return Promise.reject(`Error: ${res.status}`);
 }
 
 export function getClothingItems() {

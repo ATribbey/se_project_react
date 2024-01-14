@@ -35,7 +35,7 @@ function Main({
   });
 
   return (
-    <>
+    <main>
       <WeatherCard day={false} type="clear" weatherTemp={weatherTemp} />
       <section className="main__section" id="clothing-card-section">
         <p className="itemcard__description">
@@ -55,7 +55,7 @@ function Main({
           })}
         </ul>
       </section>
-    </>
+    </main>
   );
 }
 
