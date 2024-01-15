@@ -119,7 +119,7 @@ function App() {
 
         //THIS DOES NOT WORK, THE OBJECT MUST BE PASSED WITH A PROPERTY (ie. temperature.F or .C)
 
-        changeTemp(temperature);
+        changeTemp(temperature.F);
         const locale = parseWeatherLocation(data);
         changeLocation(locale);
       })
