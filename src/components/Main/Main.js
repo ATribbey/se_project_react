@@ -12,23 +12,27 @@ function Main({
 }) {
   const { currentTempUnit } = useContext(CurrentTempUnitContext);
 
+  const temperature = currentTempUnit === "°C" ? weatherTemp.C : weatherTemp.F;
+
   const weatherType = useMemo(() => {
     let hotTemp = 85;
     let warmTemp = 66;
 
-    if (currentTempUnit === "°C") {
-      hotTemp = 29.5;
-      warmTemp = 18.9;
-    }
+    // if (currentTempUnit === "°C") {
+    //   hotTemp = 29.5;
+    //   warmTemp = 18.9;
+    // }
 
-    if (weatherTemp > hotTemp) {
+    const tempF = weatherTemp.F;
+
+    if (tempF > hotTemp) {
       return "hot";
-    } else if (weatherTemp >= warmTemp && weatherTemp <= hotTemp) {
+    } else if (tempF >= warmTemp && tempF <= hotTemp) {
       return "warm";
-    } else if (weatherTemp < warmTemp) {
+    } else if (tempF < warmTemp) {
       return "cold";
     }
-  }, [weatherTemp, currentTempUnit]);
+  }, [weatherTemp]);
 
   const filteredCards = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
@@ -36,10 +40,10 @@ function Main({
 
   return (
     <main>
-      <WeatherCard day={false} type="clear" weatherTemp={weatherTemp} />
+      <WeatherCard day={false} type="clear" weatherTemp={temperature} />
       <section className="main__section" id="clothing-card-section">
         <p className="itemcard__description">
-          Today is {weatherTemp}
+          Today is {temperature}
           {currentTempUnit} / You may want to wear:
         </p>
         <ul className="itemcard">
