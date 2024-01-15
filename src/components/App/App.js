@@ -5,7 +5,6 @@ import { CurrentTempUnitContext } from "../../contexts/CurrentTemperatureUnitCon
 import {
   getForecastWeather,
   parseWeatherTempF,
-  parseWeatherTempC,
   parseWeatherLocation,
 } from "../../utils/WeatherApi.js";
 import {
@@ -40,8 +39,10 @@ function App() {
 
   function handleSwitchChange() {
     if (currentTempUnit === "°F") {
+      changeTemp(Math.round((temp - 32) / 1.8));
       changeTempUnit("°C");
     } else if (currentTempUnit === "°C") {
+      changeTemp(Math.round(temp * 1.8 + 32));
       changeTempUnit("°F");
     }
   }
@@ -122,21 +123,21 @@ function App() {
     fetchClothes();
   }, []);
 
-  useEffect(() => {
-    getForecastWeather()
-      .then((data) => {
-        if (currentTempUnit !== "°F") {
-          const temperature = parseWeatherTempC(data);
-          changeTemp(temperature);
-        } else if (currentTempUnit !== "°C") {
-          const temperature = parseWeatherTempF(data);
-          changeTemp(temperature);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, [currentTempUnit]);
+  // useEffect(() => {
+  //   getForecastWeather()
+  //     .then((data) => {
+  //       if (currentTempUnit !== "°F") {
+  //         const temperature = parseWeatherTempC(data);
+  //         changeTemp(temperature);
+  //       } else if (currentTempUnit !== "°C") {
+  //         const temperature = parseWeatherTempF(data);
+  //         changeTemp(temperature);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // }, [currentTempUnit]);
 
   return (
     <CurrentTempUnitContext.Provider

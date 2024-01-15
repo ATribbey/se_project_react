@@ -19,10 +19,10 @@ export function parseWeatherTempF(data) {
   return Math.round(temp);
 }
 
-export function parseWeatherTempC(data) {
-  const temp = ((data.main.temp - 32) * 5) / 9;
-  return Math.round(temp);
-}
+// export function parseWeatherTempC(data) {
+//   const temp = ((data.main.temp - 32) * 5) / 9;
+//   return Math.round(temp);
+// }
 
 export function parseWeatherLocation(data) {
   const locale = data.name;
