@@ -1,11 +1,12 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Switch, Route } from "react-router-dom";
 import { CurrentTempUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import {
   getForecastWeather,
   parseWeatherTempF,
   parseWeatherLocation,
+  parseWeatherTempC,
 } from "../../utils/WeatherApi.js";
 import {
   getClothingItems,
@@ -39,24 +40,24 @@ function App() {
 
   function handleSwitchChange() {
     if (currentTempUnit === "°F") {
-      changeTemp(Math.round((temp - 32) / 1.8));
       changeTempUnit("°C");
     } else if (currentTempUnit === "°C") {
-      changeTemp(Math.round(temp * 1.8 + 32));
       changeTempUnit("°F");
     }
   }
 
-  function handleOpenCreateModal() {
-    setActiveModal("create");
+  function openModal(modalType) {
+    setActiveModal(modalType);
     document.addEventListener("keyup", handleEscapeClose);
     document.addEventListener("click", handleClickClose);
   }
 
+  function handleOpenCreateModal() {
+    openModal("create");
+  }
+
   function handleOpenItemModal() {
-    setActiveModal("preview");
-    document.addEventListener("keyup", handleEscapeClose);
-    document.addEventListener("click", handleClickClose);
+    openModal("preview");
   }
 
   function handleCloseModal() {
@@ -65,17 +66,17 @@ function App() {
     document.removeEventListener("click", handleClickClose);
   }
 
-  function handleEscapeClose(event) {
+  const handleEscapeClose = useCallback((event) => {
     if (event.key === "Escape") {
       handleCloseModal();
     }
-  }
+  }, []);
 
-  function handleClickClose(event) {
+  const handleClickClose = useCallback((event) => {
     if (event.target.classList.contains("modal")) {
       handleCloseModal();
     }
-  }
+  }, []);
 
   function handleSelectedCard(card) {
     setSelectedCard(card);
@@ -109,7 +110,12 @@ function App() {
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
-        const temperature = parseWeatherTempF(data);
+        const tempF = parseWeatherTempF(data);
+        const tempC = parseWeatherTempC(data);
+        const temperature = {
+          F: tempF,
+          C: tempC,
+        };
         changeTemp(temperature);
         const locale = parseWeatherLocation(data);
         changeLocation(locale);
