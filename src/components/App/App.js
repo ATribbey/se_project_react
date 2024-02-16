@@ -20,6 +20,8 @@ import ItemModal from "../ItemModal/ItemModal.js";
 import Profile from "../Profile/Profile.js";
 import Footer from "../Footer/Footer.js";
 
+// Mongo DB Run command:  "C:\Program Files\MongoDB\Server\7.0\bin\mongod.exe" --dbpath="c:\data\db"
+
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -128,22 +130,6 @@ function App() {
   useEffect(() => {
     fetchClothes();
   }, []);
-
-  // useEffect(() => {
-  //   getForecastWeather()
-  //     .then((data) => {
-  //       if (currentTempUnit !== "°F") {
-  //         const temperature = parseWeatherTempC(data);
-  //         changeTemp(temperature);
-  //       } else if (currentTempUnit !== "°C") {
-  //         const temperature = parseWeatherTempF(data);
-  //         changeTemp(temperature);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // }, [currentTempUnit]);
 
   return (
     <CurrentTempUnitContext.Provider
