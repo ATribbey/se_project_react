@@ -66,17 +66,25 @@ function App() {
     document.removeEventListener("click", handleClickClose);
   }
 
-  const handleEscapeClose = useCallback((event) => {
-    if (event.key === "Escape") {
-      handleCloseModal();
-    }
-  }, []);
+  const handleEscapeClose = useCallback(
+    (event) => {
+      if (event.key === "Escape") {
+        handleCloseModal();
+      }
+    },
+    // eslint-disable-next-line
+    []
+  );
 
-  const handleClickClose = useCallback((event) => {
-    if (event.target.classList.contains("modal")) {
-      handleCloseModal();
-    }
-  }, []);
+  const handleClickClose = useCallback(
+    (event) => {
+      if (event.target.classList.contains("modal")) {
+        handleCloseModal();
+      }
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   function handleSelectedCard(card) {
     setSelectedCard(card);
