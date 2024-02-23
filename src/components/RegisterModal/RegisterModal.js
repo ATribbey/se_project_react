@@ -1,8 +1,6 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function RegisterModal({ onClose }) {
-  function onSubmit() {}
-
+function RegisterModal({ onClose, onSubmit }) {
   return (
     <ModalWithForm
       name="register"

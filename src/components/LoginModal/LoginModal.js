@@ -1,7 +1,6 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal({ onClose }) {
-  function onSubmit() {}
+function LoginModal({ onClose, onSubmit }) {
   return (
     <ModalWithForm
       name="login"
