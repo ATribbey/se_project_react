@@ -170,11 +170,7 @@ function App() {
         </Route>
       </Switch>
       {activeModal === "create" && (
-        <AddItemModal
-          onClose={handleCloseModal}
-          onAddItem={onAddItem}
-          isOpen={activeModal === "create"}
-        />
+        <AddItemModal onClose={handleCloseModal} onAddItem={onAddItem} />
       )}
       {activeModal === "preview" && (
         <ItemModal

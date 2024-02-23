@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function AddItemModal({ onClose, onAddItem, isOpen }) {
+function AddItemModal({ onClose, onAddItem }) {
   const [name, setName] = useState("");
   const [imageUrl, setUrl] = useState("");
   const [weather, setWeather] = useState("");
@@ -29,7 +29,6 @@ function AddItemModal({ onClose, onAddItem, isOpen }) {
       title="New Garment"
       onClose={onClose}
       buttonText="Add Garment"
-      isOpen={isOpen}
       onSubmit={handleSubmit}
     >
       <label htmlFor="name-input" className="modal__input-title">

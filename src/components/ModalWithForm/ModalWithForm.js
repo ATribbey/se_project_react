@@ -6,7 +6,6 @@ function ModalWithForm({
   onClose,
   children,
   buttonText = "Add Garment",
-  isOpen,
   onSubmit,
 }) {
   return (
