@@ -1,5 +1,3 @@
-// OPEN MOCK SERVER COMMAND: json-server --watch db.json --id _id --port 3001
-
 const baseUrl = "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };
 
@@ -39,5 +37,21 @@ export function deleteClothingItem(cardId) {
     headers: baseHeaders,
   }).then((res) => {
     return checkResponse(res);
+  });
+}
+
+export function login({ email, password }) {
+  return fetch(`${baseUrl}/signin`, {
+    method: "POST",
+    headers: baseHeaders,
+    body: JSON.stringify({ email, password }),
+  });
+}
+
+export function register({ name, avatar, email, password }) {
+  return fetch(`${baseUrl}/signup`, {
+    method: "POST",
+    headers: baseHeaders,
+    body: JSON.stringify({ name, avatar, email, password }),
   });
 }
