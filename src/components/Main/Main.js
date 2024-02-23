@@ -18,11 +18,6 @@ function Main({
     let hotTemp = 85;
     let warmTemp = 66;
 
-    // if (currentTempUnit === "°C") {
-    //   hotTemp = 29.5;
-    //   warmTemp = 18.9;
-    // }
-
     const tempF = weatherTemp.F;
 
     if (tempF > hotTemp) {
