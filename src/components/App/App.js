@@ -17,6 +17,8 @@ import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
 import ItemModal from "../ItemModal/ItemModal.js";
+import LoginModal from "../LoginModal/LoginModal.js";
+import RegisterModal from "../RegisterModal/RegisterModal.js";
 import Profile from "../Profile/Profile.js";
 import Footer from "../Footer/Footer.js";
 
@@ -67,6 +69,14 @@ function App() {
 
   function handleOpenItemModal() {
     openModal("preview");
+  }
+
+  function handleOpenLoginModal() {
+    openModal("login");
+  }
+
+  function handleOpenRegisterModal() {
+    openModal("register");
   }
 
   function handleCloseModal() {
@@ -151,6 +161,10 @@ function App() {
       value={{ currentTempUnit, handleSwitchChange }}
     >
       <Header location={location} onClick={handleOpenCreateModal} />
+      <button onClick={handleOpenLoginModal}>Hello I am Login Button</button>
+      <button onClick={handleOpenRegisterModal}>
+        Hello I am Register Button
+      </button>
       <Switch>
         <Route exact path="/">
           <Main
@@ -178,6 +192,12 @@ function App() {
           onClose={handleCloseModal}
           handleDelete={onDeleteItem}
         />
+      )}
+      {activeModal === "login" && (
+        <LoginModal onClose={handleCloseModal}></LoginModal>
+      )}
+      {activeModal === "register" && (
+        <RegisterModal onClose={handleCloseModal}></RegisterModal>
       )}
 
       <Footer />
