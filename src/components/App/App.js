@@ -40,7 +40,7 @@ function App() {
   function fetchClothes() {
     getClothingItems()
       .then((items) => {
-        setClothingItems(items);
+        setClothingItems(items.data);
       })
       .catch((err) => {
         console.error(err);
