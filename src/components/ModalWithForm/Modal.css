@@ -15,7 +15,7 @@
 
 .modal__content {
   background-color: #fff;
-  border-radius: 6%;
+  border-radius: 20px;
   max-width: 496px;
   width: 100%;
   position: relative;
