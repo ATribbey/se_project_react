@@ -4,4 +4,6 @@ Using React and JSX as the foundations, this app allows users to interact with a
 With this information in mind then, the application presents users with a number of clothing options for appropriate for the the current climate and time day.
 Additionally, it allows users to add their own clothing, enabling them to create a virtual wardrobe from which this application will pull, on top of the default values already given.
 
-https://github.com/ATribbey/se_project_react
+Link to project: https://github.com/ATribbey/se_project_react
+
+Link to project backend: https://github.com/ATribbey/se_project_express
