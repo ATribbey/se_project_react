@@ -24,7 +24,8 @@ import Footer from "../Footer/Footer.js";
 - For future reference:
   - To run this application, do the following: 
     - Run React application using npm start in terminal
-    - Run Express application using included instructions
+    - Run Server using the following command in terminal: 
+      - 'C:\Program Files\MongoDB\Server\7.0\bin\mongod.exe' --dbpath='c:\data\db'
 */
 
 function App() {
