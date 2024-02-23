@@ -20,6 +20,13 @@ import ItemModal from "../ItemModal/ItemModal.js";
 import Profile from "../Profile/Profile.js";
 import Footer from "../Footer/Footer.js";
 
+/* 
+- For future reference:
+  - To run this application, do the following: 
+    - Run React application using npm start in terminal
+    - Run Express application using included instructions
+*/
+
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
