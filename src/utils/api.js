@@ -39,19 +39,3 @@ export function deleteClothingItem(cardId) {
     return checkResponse(res);
   });
 }
-
-export function login({ email, password }) {
-  return fetch(`${baseUrl}/signin`, {
-    method: "POST",
-    headers: baseHeaders,
-    body: JSON.stringify({ email, password }),
-  });
-}
-
-export function register({ name, avatar, email, password }) {
-  return fetch(`${baseUrl}/signup`, {
-    method: "POST",
-    headers: baseHeaders,
-    body: JSON.stringify({ name, avatar, email, password }),
-  });
-}
