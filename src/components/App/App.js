@@ -13,7 +13,7 @@ import {
   postClothingItem,
   deleteClothingItem,
 } from "../../utils/api.js";
-import { login, register } from "../../auth.js";
+import { login, register, checkToken } from "../../auth.js";
 import Header from "../Header/Header.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 import Main from "../Main/Main.js";
@@ -182,7 +182,16 @@ function App() {
     fetchClothes();
   }, []);
 
-  useEffect(() => {});
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    checkToken(jwt)
+      .then((res) => {
+        setLoggedIn(true);
+      })
+      .catch(() => {
+        return;
+      });
+  }, []);
 
   return (
     <CurrentTempUnitContext.Provider

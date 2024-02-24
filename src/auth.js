@@ -22,12 +22,14 @@ export function register({ name, avatar, email, password }) {
   });
 }
 
-export function useToken(token) {
+export function checkToken(token) {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
+  }).then((res) => {
+    return checkResponse(res);
   });
 }
