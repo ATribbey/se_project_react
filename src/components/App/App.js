@@ -13,6 +13,7 @@ import {
   postClothingItem,
   deleteClothingItem,
 } from "../../utils/api.js";
+import { login, register } from "../../auth.js";
 import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
@@ -134,6 +135,26 @@ function App() {
       });
   }
 
+  function loginUser(values) {
+    login(values)
+      .then(() => {
+        handleCloseModal();
+      })
+      .catch((e) => {
+        console.error(`Unable to login to user due to: ${e}`);
+      });
+  }
+
+  function registerUser(values) {
+    register(values)
+      .then(() => {
+        handleCloseModal();
+      })
+      .catch((e) => {
+        console.error(`Unable to register user due to: ${e}`);
+      });
+  }
+
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
@@ -194,10 +215,16 @@ function App() {
         />
       )}
       {activeModal === "login" && (
-        <LoginModal onClose={handleCloseModal}></LoginModal>
+        <LoginModal
+          onClose={handleCloseModal}
+          loginUser={loginUser}
+        ></LoginModal>
       )}
       {activeModal === "register" && (
-        <RegisterModal onClose={handleCloseModal}></RegisterModal>
+        <RegisterModal
+          onClose={handleCloseModal}
+          registerUser={registerUser}
+        ></RegisterModal>
       )}
 
       <Footer />

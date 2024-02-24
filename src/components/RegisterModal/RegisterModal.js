@@ -1,6 +1,33 @@
+import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function RegisterModal({ onClose, onSubmit }) {
+function RegisterModal({ onClose, registerUser }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [avatar, setAvatar] = useState("");
+
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
+  }
+
+  function handlePasswordChange(event) {
+    setPassword(event.target.value);
+  }
+
+  function handleNameChange(event) {
+    setName(event.target.value);
+  }
+
+  function handleAvatarChange(event) {
+    setAvatar(event.target.value);
+  }
+
+  function onSubmit(event) {
+    event.preventDefault();
+    registerUser({ email, password, name, avatar });
+  }
+
   return (
     <ModalWithForm
       name="register"
@@ -19,6 +46,8 @@ function RegisterModal({ onClose, onSubmit }) {
         name="email"
         placeholder="Email"
         required
+        value={email}
+        onChange={handleEmailChange}
       ></input>
       <label htmlFor="password-input" className="modal__input-title">
         Password*
@@ -30,6 +59,8 @@ function RegisterModal({ onClose, onSubmit }) {
         name="password"
         placeholder="Password"
         required
+        value={password}
+        onChange={handlePasswordChange}
       ></input>
       <label htmlFor="name-input" className="modal__input-title">
         Name*
@@ -43,6 +74,8 @@ function RegisterModal({ onClose, onSubmit }) {
         minLength={1}
         maxLength={30}
         required
+        value={name}
+        onChange={handleNameChange}
       ></input>
       <label htmlFor="avatar-input" className="modal__input-title">
         Avatar URL*
@@ -54,6 +87,8 @@ function RegisterModal({ onClose, onSubmit }) {
         name="url"
         placeholder="Avatar URL"
         required
+        value={avatar}
+        onChange={handleAvatarChange}
       ></input>
     </ModalWithForm>
   );

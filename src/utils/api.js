@@ -12,6 +12,7 @@ export function checkResponse(res) {
 export function getClothingItems() {
   return fetch(`${baseUrl}/items`, {
     method: "GET",
+    headers: baseHeaders,
   }).then((res) => {
     return checkResponse(res);
   });
