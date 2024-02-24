@@ -15,6 +15,7 @@ import {
 } from "../../utils/api.js";
 import { login, register } from "../../auth.js";
 import Header from "../Header/Header.js";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 import Main from "../Main/Main.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
 import ItemModal from "../ItemModal/ItemModal.js";
@@ -199,14 +200,14 @@ function App() {
             clothingItems={clothingItems}
           />
         </Route>
-        <Route path="/profile">
+        <ProtectedRoute path="/profile" loggedIn={loggedIn}>
           <Profile
             onSelectCard={handleSelectedCard}
             handleOpenItemModal={handleOpenItemModal}
             onClick={handleOpenCreateModal}
             clothingItems={clothingItems}
           />
-        </Route>
+        </ProtectedRoute>
       </Switch>
       {activeModal === "create" && (
         <AddItemModal onClose={handleCloseModal} onAddItem={onAddItem} />
