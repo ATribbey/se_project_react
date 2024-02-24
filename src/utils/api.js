@@ -1,5 +1,6 @@
 const baseUrl = "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };
+const jwt = localStorage.getItem("jwt");
 
 export function checkResponse(res) {
   if (res.ok) {
@@ -21,7 +22,10 @@ export function getClothingItems() {
 export function postClothingItem({ name, imageUrl, weather }) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
-    headers: baseHeaders,
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${jwt}`,
+    },
     body: JSON.stringify({
       name: name,
       imageUrl: imageUrl,
@@ -35,7 +39,10 @@ export function postClothingItem({ name, imageUrl, weather }) {
 export function deleteClothingItem(cardId) {
   return fetch(`${baseUrl}/items/${cardId}`, {
     method: "DELETE",
-    headers: baseHeaders,
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${jwt}`,
+    },
   }).then((res) => {
     return checkResponse(res);
   });
