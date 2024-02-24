@@ -39,6 +39,7 @@ function App() {
   const [location, changeLocation] = useState("");
   const [currentTempUnit, changeTempUnit] = useState("°F");
   const [clothingItems, setClothingItems] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   function fetchClothes() {
     getClothingItems()
@@ -138,6 +139,7 @@ function App() {
   function loginUser(values) {
     login(values)
       .then(() => {
+        setLoggedIn(true);
         handleCloseModal();
       })
       .catch((e) => {
@@ -181,11 +183,13 @@ function App() {
     <CurrentTempUnitContext.Provider
       value={{ currentTempUnit, handleSwitchChange }}
     >
-      <Header location={location} onClick={handleOpenCreateModal} />
-      <button onClick={handleOpenLoginModal}>Hello I am Login Button</button>
-      <button onClick={handleOpenRegisterModal}>
-        Hello I am Register Button
-      </button>
+      <Header
+        location={location}
+        onClick={handleOpenCreateModal}
+        loggedIn={loggedIn}
+        register={handleOpenRegisterModal}
+        login={handleOpenLoginModal}
+      />
       <Switch>
         <Route exact path="/">
           <Main

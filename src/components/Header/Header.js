@@ -13,7 +13,7 @@ function getDate() {
   return <span>{currentDate}</span>;
 }
 
-function Header({ location, onClick }) {
+function Header({ location, onClick, loggedIn, register, login }) {
   return (
     <header className="header">
       <div className="header__section">
@@ -26,17 +26,30 @@ function Header({ location, onClick }) {
       </div>
       <div className="header__section">
         <ToggleSwitch />
-        <button type="button" className="header__button" onClick={onClick}>
-          + Add clothes
-        </button>
-        <Link className="header__user-info" to="/profile">
-          <p className="header__user-name">Terrence Tegegne</p>
-          <img
-            className="hedaer__user-avatar"
-            src={avatar}
-            alt="Profile Avatar"
-          />
-        </Link>
+        {loggedIn ? (
+          <>
+            <button type="button" className="header__button" onClick={onClick}>
+              + Add clothes
+            </button>
+            <Link className="header__user-info" to="/profile">
+              <p className="header__user-name">Terrence Tegegne</p>
+              <img
+                className="hedaer__user-avatar"
+                src={avatar}
+                alt="Profile Avatar"
+              />
+            </Link>
+          </>
+        ) : (
+          <>
+            <button type="button" className="header__button" onClick={register}>
+              Sign Up
+            </button>
+            <button type="button" className="header__button" onClick={login}>
+              Log In
+            </button>
+          </>
+        )}
       </div>
     </header>
   );
