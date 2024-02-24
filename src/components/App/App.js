@@ -139,9 +139,10 @@ function App() {
 
   function loginUser(values) {
     login(values)
-      .then(() => {
+      .then((res) => {
         setLoggedIn(true);
         handleCloseModal();
+        localStorage.setItem("jwt", res.data);
       })
       .catch((e) => {
         console.error(`Unable to login to user due to: ${e}`);
@@ -180,6 +181,8 @@ function App() {
   useEffect(() => {
     fetchClothes();
   }, []);
+
+  useEffect(() => {});
 
   return (
     <CurrentTempUnitContext.Provider

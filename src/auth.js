@@ -8,7 +8,6 @@ export function login({ email, password }) {
     headers: baseHeaders,
     body: JSON.stringify({ email, password }),
   }).then((res) => {
-    console.log(res);
     return checkResponse(res);
   });
 }
@@ -19,7 +18,16 @@ export function register({ name, avatar, email, password }) {
     headers: baseHeaders,
     body: JSON.stringify({ name, avatar, email, password }),
   }).then((res) => {
-    console.log(res);
     return checkResponse(res);
+  });
+}
+
+export function useToken(token) {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
   });
 }
