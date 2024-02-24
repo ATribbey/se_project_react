@@ -152,6 +152,7 @@ function App() {
     register(values)
       .then(() => {
         handleCloseModal();
+        loginUser(values);
       })
       .catch((e) => {
         console.error(`Unable to register user due to: ${e}`);
