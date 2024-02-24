@@ -13,7 +13,7 @@ import {
   postClothingItem,
   deleteClothingItem,
 } from "../../utils/api.js";
-import { login, register, checkToken } from "../../auth.js";
+import { login, register, checkToken } from "../../utils/auth.js";
 import Header from "../Header/Header.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 import Main from "../Main/Main.js";
