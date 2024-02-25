@@ -115,7 +115,7 @@ function App() {
   function onAddItem(values) {
     postClothingItem(values)
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+        setClothingItems([newItem.data, ...clothingItems]);
         handleCloseModal();
       })
       .catch((err) => {
