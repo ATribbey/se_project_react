@@ -186,9 +186,11 @@ function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
+
     checkToken(jwt)
       .then((res) => {
         setLoggedIn(true);
+        setCurrentUser(res.data);
       })
       .catch(() => {
         return;

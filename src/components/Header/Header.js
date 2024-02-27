@@ -1,8 +1,10 @@
 import "./Header.css";
+import { useContext } from "react";
 import logo from "../../images/logo.svg";
 import avatar from "../../images/user-avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch.js";
 import { Link } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function getDate() {
   const currentDate = new Date().toLocaleString("default", {
@@ -14,6 +16,8 @@ function getDate() {
 }
 
 function Header({ location, onClick, loggedIn, register, login }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <header className="header">
       <div className="header__section">
@@ -34,7 +38,7 @@ function Header({ location, onClick, loggedIn, register, login }) {
             <Link className="header__user-info" to="/profile">
               <p className="header__user-name">Terrence Tegegne</p>
               <img
-                className="hedaer__user-avatar"
+                className="header__user-avatar"
                 src={avatar}
                 alt="Profile Avatar"
               />
