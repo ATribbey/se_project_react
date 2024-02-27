@@ -8,6 +8,8 @@ function Profile({
   handleOpenItemModal,
   onClick,
   clothingItems,
+  editProfile,
+  logout,
 }) {
   const currentUser = useContext(CurrentUserContext);
 
@@ -23,8 +25,12 @@ function Profile({
           <p className="profile__user-name">{currentUser?.name}</p>
         </div>
         <div className="profile__user-options">
-          <button className="profile__user-button">Change Profile Data</button>
-          <button className="profile__user-button">Logout</button>
+          <button className="profile__user-button" onClick={editProfile}>
+            Change Profile Data
+          </button>
+          <button className="profile__user-button" onClick={logout}>
+            Logout
+          </button>
         </div>
       </div>
       <div className="profile__clothing">

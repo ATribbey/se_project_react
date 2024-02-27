@@ -22,6 +22,7 @@ import AddItemModal from "../AddItemModal/AddItemModal.js";
 import ItemModal from "../ItemModal/ItemModal.js";
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
+import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
 import Profile from "../Profile/Profile.js";
 import Footer from "../Footer/Footer.js";
 
@@ -258,6 +259,9 @@ function App() {
             onClose={handleCloseModal}
             registerUser={registerUser}
           ></RegisterModal>
+        )}
+        {activeModal === "edit" && (
+          <EditProfileModal onClose={handleCloseModal}></EditProfileModal>
         )}
 
         <Footer />

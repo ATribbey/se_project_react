@@ -26,32 +26,36 @@ function LoginModal({ onClose, loginUser }) {
       buttonText="Log In"
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email-input" className="modal__input-title">
-        Email
-      </label>
-      <input
-        id="email-input"
-        className="modal__input"
-        type="email"
-        name="email"
-        placeholder="Email"
-        required
-        value={email}
-        onChange={handleEmailChange}
-      ></input>
-      <label htmlFor="password-input" className="modal__input-title">
-        Password
-      </label>
-      <input
-        id="password-input"
-        className="modal__input"
-        type="password"
-        name="password"
-        placeholder="Password"
-        required
-        value={password}
-        onChange={handlePasswordChange}
-      ></input>
+      <div>
+        <label htmlFor="email-input" className="modal__input-title">
+          Email
+        </label>
+        <input
+          id="email-input"
+          className="modal__input"
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+          value={email}
+          onChange={handleEmailChange}
+        ></input>
+      </div>
+      <div>
+        <label htmlFor="password-input" className="modal__input-title">
+          Password
+        </label>
+        <input
+          id="password-input"
+          className="modal__input"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+          value={password}
+          onChange={handlePasswordChange}
+        ></input>
+      </div>
     </ModalWithForm>
   );
 }
