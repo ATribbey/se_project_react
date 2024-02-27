@@ -16,7 +16,7 @@ function getDate() {
 }
 
 function Header({ location, onClick, loggedIn, register, login }) {
-  const { currentUser } = useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
 
   return (
     <header className="header">

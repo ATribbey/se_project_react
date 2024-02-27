@@ -1,7 +1,8 @@
-import React from "react";
+import { React, useContext } from "react";
 import "./Profile.css";
 import avatar from "../../images/user-avatar.svg";
 import ItemCard from "../ItemCard/ItemCard";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function Profile({
   onSelectCard,
@@ -9,16 +10,18 @@ function Profile({
   onClick,
   clothingItems,
 }) {
+  const currentUser = useContext(CurrentUserContext);
+
   return (
     <div className="profile">
       <div className="profile__user-info">
         <div className="profile__user-info-container">
           <img
             className="profile__user-avatar"
-            src={avatar}
+            src={currentUser?.avatar}
             alt="Profile Avatar"
           ></img>
-          <p className="profile__user-name">Terrence Tegegne</p>
+          <p className="profile__user-name">{currentUser?.name}</p>
         </div>
       </div>
       <div className="profile__clothing">

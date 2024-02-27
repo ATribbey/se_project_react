@@ -23,6 +23,7 @@
 .profile__user-avatar {
   width: 56px;
   height: 56px;
+  border-radius: 50%;
 }
 
 .profile__user-name {
