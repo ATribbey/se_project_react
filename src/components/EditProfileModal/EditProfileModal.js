@@ -55,7 +55,7 @@ function EditProfileModal({ onClose, updateUser }) {
           className="modal__input"
           type="url"
           name="url"
-          placeholder="Avatar URL"
+          placeholder={currentUser.avatar}
           required
           value={avatar}
           onChange={handleAvatarChange}
