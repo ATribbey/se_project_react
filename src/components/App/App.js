@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect, useCallback } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import { CurrentTempUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import {
@@ -44,6 +44,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const history = useHistory("");
 
   function fetchClothes() {
     getClothingItems()
@@ -83,6 +84,10 @@ function App() {
 
   function handleOpenRegisterModal() {
     openModal("register");
+  }
+
+  function handleOpenEditModal() {
+    openModal("edit");
   }
 
   function handleCloseModal() {
@@ -173,6 +178,13 @@ function App() {
       });
   }
 
+  function logoutUser() {
+    localStorage.removeItem("jwt");
+    setCurrentUser({});
+    setLoggedIn(false);
+    history.push("/");
+  }
+
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
@@ -197,15 +209,16 @@ function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-
-    checkToken(jwt)
-      .then((res) => {
-        setLoggedIn(true);
-        setCurrentUser(res.data);
-      })
-      .catch(() => {
-        return;
-      });
+    if (jwt !== null) {
+      checkToken(jwt)
+        .then((res) => {
+          setLoggedIn(true);
+          setCurrentUser(res.data);
+        })
+        .catch(() => {
+          return;
+        });
+    }
   }, []);
 
   return (
@@ -235,6 +248,8 @@ function App() {
               handleOpenItemModal={handleOpenItemModal}
               onClick={handleOpenCreateModal}
               clothingItems={clothingItems}
+              editProfile={handleOpenEditModal}
+              logout={logoutUser}
             />
           </ProtectedRoute>
         </Switch>
