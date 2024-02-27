@@ -85,6 +85,14 @@
   margin-right: 32px;
 }
 
+.modal__preview-deleteButton__visible {
+  visibility: visible;
+}
+
+.modal__preview-deleteButton__hidden {
+  visibility: hidden;
+}
+
 .modal__form {
   font-family: "CabinetGrotesk-Bold", Arial, Helvetica, sans-serif;
   font-size: 16px;
