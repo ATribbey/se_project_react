@@ -33,14 +33,17 @@ function Profile({
         <div className="profile__items">
           <ul className="itemcard">
             {clothingItems.map((item) => {
-              return (
-                <ItemCard
-                  key={item._id}
-                  item={item}
-                  onSelectCard={onSelectCard}
-                  handleOpenItemModal={handleOpenItemModal}
-                />
-              );
+              const isOwn = item.owner === currentUser._id;
+              if (isOwn) {
+                return (
+                  <ItemCard
+                    key={item._id}
+                    item={item}
+                    onSelectCard={onSelectCard}
+                    handleOpenItemModal={handleOpenItemModal}
+                  />
+                );
+              } else return null;
             })}
           </ul>
         </div>

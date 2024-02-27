@@ -85,11 +85,11 @@
   margin-right: 32px;
 }
 
-.modal__preview-deleteButton__visible {
+.modal__preview-deleteButton_visible {
   visibility: visible;
 }
 
-.modal__preview-deleteButton__hidden {
+.modal__preview-deleteButton_hidden {
   visibility: hidden;
 }
 
