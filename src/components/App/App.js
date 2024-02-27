@@ -139,12 +139,22 @@ function App() {
       });
   }
 
+  function checkTokenSetUser(token) {
+    return checkToken(token).then((res) => {
+      setLoggedIn(true);
+      setCurrentUser(res.data);
+      console.log(res.data);
+    });
+  }
+
   function loginUser(values) {
     login(values)
       .then((res) => {
-        setLoggedIn(true);
         handleCloseModal();
-        localStorage.setItem("jwt", res.data);
+        const jwt = res.data;
+        localStorage.setItem("jwt", jwt);
+
+        return checkTokenSetUser(jwt);
       })
       .catch((e) => {
         console.error(`Unable to login to user due to: ${e}`);
@@ -184,19 +194,19 @@ function App() {
     fetchClothes();
   }, []);
 
-  useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
+  // useEffect(() => {
+  //   const jwt = localStorage.getItem("jwt");
 
-    checkToken(jwt)
-      .then((res) => {
-        setLoggedIn(true);
-        setCurrentUser(res.data);
-        console.log(currentUser);
-      })
-      .catch(() => {
-        return;
-      });
-  }, []);
+  //   checkToken(jwt)
+  //     .then((res) => {
+  //       setLoggedIn(true);
+  //       setCurrentUser(res.data);
+  //       console.log(currentUser);
+  //     })
+  //     .catch(() => {
+  //       return;
+  //     });
+  // }, []);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
