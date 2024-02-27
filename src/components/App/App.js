@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect, useCallback } from "react";
 import { Switch, Route } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import { CurrentTempUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import {
   getForecastWeather,
@@ -57,6 +58,14 @@ function App() {
       changeTempUnit("°C");
     } else if (currentTempUnit === "°C") {
       changeTempUnit("°F");
+    }
+  }
+
+  function handleUserChange() {
+    if (loggedIn) {
+      setLoggedIn(false);
+    } else if (!loggedIn) {
+      setLoggedIn(true);
     }
   }
 
@@ -194,59 +203,61 @@ function App() {
   }, []);
 
   return (
-    <CurrentTempUnitContext.Provider
-      value={{ currentTempUnit, handleSwitchChange }}
-    >
-      <Header
-        location={location}
-        onClick={handleOpenCreateModal}
-        loggedIn={loggedIn}
-        register={handleOpenRegisterModal}
-        login={handleOpenLoginModal}
-      />
-      <Switch>
-        <Route exact path="/">
-          <Main
-            weatherTemp={temp}
-            onSelectCard={handleSelectedCard}
-            handleOpenItemModal={handleOpenItemModal}
-            clothingItems={clothingItems}
-          />
-        </Route>
-        <ProtectedRoute path="/profile" loggedIn={loggedIn}>
-          <Profile
-            onSelectCard={handleSelectedCard}
-            handleOpenItemModal={handleOpenItemModal}
-            onClick={handleOpenCreateModal}
-            clothingItems={clothingItems}
-          />
-        </ProtectedRoute>
-      </Switch>
-      {activeModal === "create" && (
-        <AddItemModal onClose={handleCloseModal} onAddItem={onAddItem} />
-      )}
-      {activeModal === "preview" && (
-        <ItemModal
-          cardObj={selectedCard}
-          onClose={handleCloseModal}
-          handleDelete={onDeleteItem}
+    <CurrentUserContext.Provider value={{ loggedIn, handleUserChange }}>
+      <CurrentTempUnitContext.Provider
+        value={{ currentTempUnit, handleSwitchChange }}
+      >
+        <Header
+          location={location}
+          onClick={handleOpenCreateModal}
+          loggedIn={loggedIn}
+          register={handleOpenRegisterModal}
+          login={handleOpenLoginModal}
         />
-      )}
-      {activeModal === "login" && (
-        <LoginModal
-          onClose={handleCloseModal}
-          loginUser={loginUser}
-        ></LoginModal>
-      )}
-      {activeModal === "register" && (
-        <RegisterModal
-          onClose={handleCloseModal}
-          registerUser={registerUser}
-        ></RegisterModal>
-      )}
+        <Switch>
+          <Route exact path="/">
+            <Main
+              weatherTemp={temp}
+              onSelectCard={handleSelectedCard}
+              handleOpenItemModal={handleOpenItemModal}
+              clothingItems={clothingItems}
+            />
+          </Route>
+          <ProtectedRoute path="/profile" loggedIn={loggedIn}>
+            <Profile
+              onSelectCard={handleSelectedCard}
+              handleOpenItemModal={handleOpenItemModal}
+              onClick={handleOpenCreateModal}
+              clothingItems={clothingItems}
+            />
+          </ProtectedRoute>
+        </Switch>
+        {activeModal === "create" && (
+          <AddItemModal onClose={handleCloseModal} onAddItem={onAddItem} />
+        )}
+        {activeModal === "preview" && (
+          <ItemModal
+            cardObj={selectedCard}
+            onClose={handleCloseModal}
+            handleDelete={onDeleteItem}
+          />
+        )}
+        {activeModal === "login" && (
+          <LoginModal
+            onClose={handleCloseModal}
+            loginUser={loginUser}
+          ></LoginModal>
+        )}
+        {activeModal === "register" && (
+          <RegisterModal
+            onClose={handleCloseModal}
+            registerUser={registerUser}
+          ></RegisterModal>
+        )}
 
-      <Footer />
-    </CurrentTempUnitContext.Provider>
+        <Footer />
+      </CurrentTempUnitContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
 
