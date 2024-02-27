@@ -22,6 +22,10 @@ function Profile({
           ></img>
           <p className="profile__user-name">{currentUser?.name}</p>
         </div>
+        <div className="profile__user-options">
+          <button className="profile__user-button">Change Profile Data</button>
+          <button className="profile__user-button">Logout</button>
+        </div>
       </div>
       <div className="profile__clothing">
         <div className="profile__clothing-header">
