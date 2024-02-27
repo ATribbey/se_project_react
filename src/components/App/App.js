@@ -194,19 +194,18 @@ function App() {
     fetchClothes();
   }, []);
 
-  // useEffect(() => {
-  //   const jwt = localStorage.getItem("jwt");
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
 
-  //   checkToken(jwt)
-  //     .then((res) => {
-  //       setLoggedIn(true);
-  //       setCurrentUser(res.data);
-  //       console.log(currentUser);
-  //     })
-  //     .catch(() => {
-  //       return;
-  //     });
-  // }, []);
+    checkToken(jwt)
+      .then((res) => {
+        setLoggedIn(true);
+        setCurrentUser(res.data);
+      })
+      .catch(() => {
+        return;
+      });
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

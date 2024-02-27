@@ -36,10 +36,10 @@ function Header({ location, onClick, loggedIn, register, login }) {
               + Add clothes
             </button>
             <Link className="header__user-info" to="/profile">
-              <p className="header__user-name">Terrence Tegegne</p>
+              <p className="header__user-name">{currentUser?.name}</p>
               <img
                 className="header__user-avatar"
-                src={avatar}
+                src={currentUser?.avatar}
                 alt="Profile Avatar"
               />
             </Link>
