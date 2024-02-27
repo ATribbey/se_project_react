@@ -191,6 +191,7 @@ function App() {
       .then((res) => {
         setLoggedIn(true);
         setCurrentUser(res.data);
+        console.log(currentUser);
       })
       .catch(() => {
         return;
