@@ -12,6 +12,19 @@ export function login({ email, password }) {
   });
 }
 
+export function update({ name, avatar }, token) {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  }).then((res) => {
+    checkResponse(res);
+  });
+}
+
 export function register({ name, avatar, email, password }) {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",

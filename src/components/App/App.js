@@ -14,7 +14,7 @@ import {
   postClothingItem,
   deleteClothingItem,
 } from "../../utils/api.js";
-import { login, register, checkToken } from "../../utils/auth.js";
+import { login, update, register, checkToken } from "../../utils/auth.js";
 import Header from "../Header/Header.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 import Main from "../Main/Main.js";
@@ -149,7 +149,6 @@ function App() {
     return checkToken(token).then((res) => {
       setLoggedIn(true);
       setCurrentUser(res.data);
-      console.log(res.data);
     });
   }
 
@@ -165,6 +164,14 @@ function App() {
       .catch((e) => {
         console.error(`Unable to login to user due to: ${e}`);
       });
+  }
+
+  function updateUser(values) {
+    const jwt = localStorage.getItem("jwt");
+    console.log(values);
+    update(values, jwt).then(() => {
+      handleCloseModal();
+    });
   }
 
   function registerUser(values) {
@@ -276,7 +283,10 @@ function App() {
           ></RegisterModal>
         )}
         {activeModal === "edit" && (
-          <EditProfileModal onClose={handleCloseModal}></EditProfileModal>
+          <EditProfileModal
+            onClose={handleCloseModal}
+            updateUser={updateUser}
+          ></EditProfileModal>
         )}
 
         <Footer />
