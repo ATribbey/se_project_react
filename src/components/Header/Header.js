@@ -3,8 +3,6 @@ import logo from "../../images/logo.svg";
 import avatar from "../../images/user-avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch.js";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function getDate() {
   const currentDate = new Date().toLocaleString("default", {
@@ -15,9 +13,7 @@ function getDate() {
   return <span>{currentDate}</span>;
 }
 
-function Header({ location, onClick, register, login }) {
-  const { loggedIn } = useContext(CurrentUserContext);
-
+function Header({ location, onClick, loggedIn, register, login }) {
   return (
     <header className="header">
       <div className="header__section">

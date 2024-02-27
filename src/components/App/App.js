@@ -42,6 +42,7 @@ function App() {
   const [currentTempUnit, changeTempUnit] = useState("°F");
   const [clothingItems, setClothingItems] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
 
   function fetchClothes() {
     getClothingItems()
@@ -58,14 +59,6 @@ function App() {
       changeTempUnit("°C");
     } else if (currentTempUnit === "°C") {
       changeTempUnit("°F");
-    }
-  }
-
-  function handleUserChange() {
-    if (loggedIn) {
-      setLoggedIn(false);
-    } else if (!loggedIn) {
-      setLoggedIn(true);
     }
   }
 
@@ -203,7 +196,7 @@ function App() {
   }, []);
 
   return (
-    <CurrentUserContext.Provider value={{ loggedIn, handleUserChange }}>
+    <CurrentUserContext.Provider value={currentUser}>
       <CurrentTempUnitContext.Provider
         value={{ currentTempUnit, handleSwitchChange }}
       >
