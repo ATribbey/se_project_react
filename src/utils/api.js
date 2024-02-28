@@ -36,8 +36,8 @@ export function postClothingItem({ name, imageUrl, weather }) {
   });
 }
 
-export function likeClothingItem({ id }) {
-  return fetch(`${baseUrl}/${id}/likes`, {
+export function likeClothingItem(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -48,8 +48,8 @@ export function likeClothingItem({ id }) {
   });
 }
 
-export function dislikeClothingItem({ id }) {
-  return fetch(`${baseUrl}/${id}/likes`, {
+export function dislikeClothingItem(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
