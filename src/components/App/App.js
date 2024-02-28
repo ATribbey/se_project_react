@@ -268,6 +268,7 @@ function App() {
               handleOpenItemModal={handleOpenItemModal}
               clothingItems={clothingItems}
               onCardLike={handleCardLike}
+              loggedIn={loggedIn}
             />
           </Route>
           <ProtectedRoute path="/profile" loggedIn={loggedIn}>
@@ -276,6 +277,7 @@ function App() {
               handleOpenItemModal={handleOpenItemModal}
               onClick={handleOpenCreateModal}
               onCardLike={handleCardLike}
+              loggedIn={loggedIn}
               clothingItems={clothingItems}
               editProfile={handleOpenEditModal}
               logout={logoutUser}

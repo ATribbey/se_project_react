@@ -10,6 +10,7 @@ function Main({
   handleOpenItemModal,
   clothingItems,
   onCardLike,
+  loggedIn,
 }) {
   const { currentTempUnit } = useContext(CurrentTempUnitContext);
 
@@ -51,6 +52,7 @@ function Main({
                 onSelectCard={onSelectCard}
                 handleOpenItemModal={handleOpenItemModal}
                 onCardLike={onCardLike}
+                loggedIn={loggedIn}
               />
             );
           })}
