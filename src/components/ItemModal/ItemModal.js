@@ -6,11 +6,6 @@ function ItemModal({ cardObj, onClose, handleDelete }) {
   const cardId = cardObj._id;
   const currentUser = useContext(CurrentUserContext);
   const isOwn = cardObj.owner === currentUser._id;
-  const itemDeleteButtonClassName = `modal__preview-deletebutton ${
-    isOwn
-      ? "modal__preview-deleteButton__visible"
-      : "modal__preview-deleteButton__hidden"
-  }`;
 
   return (
     <div className="modal">
@@ -34,14 +29,18 @@ function ItemModal({ cardObj, onClose, handleDelete }) {
             </p>
           </div>
           <div id="preview-group-divider">
-            <button
-              className={itemDeleteButtonClassName}
-              onClick={() => {
-                handleDelete(cardId);
-              }}
-            >
-              Delete item
-            </button>
+            {isOwn ? (
+              <button
+                className="modal__preview-deletebutton"
+                onClick={() => {
+                  handleDelete(cardId);
+                }}
+              >
+                Delete item
+              </button>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

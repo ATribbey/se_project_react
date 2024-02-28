@@ -83,14 +83,7 @@
   cursor: pointer;
   color: #ff4d00;
   margin-right: 32px;
-}
-
-.modal__preview-deleteButton_visible {
   visibility: visible;
-}
-
-.modal__preview-deleteButton_hidden {
-  visibility: hidden;
 }
 
 .modal__form {
