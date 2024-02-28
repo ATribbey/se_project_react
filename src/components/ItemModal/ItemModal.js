@@ -28,7 +28,10 @@ function ItemModal({ cardObj, onClose, handleDelete }) {
         <div className="modal__preview-text-container">
           <div id="preview-group-divider">
             <p className="modal__preview-text">{cardObj.name}</p>
-            <p className="modal__preview-text">Weather: {cardObj.weather}</p>
+            <p className="modal__preview-text">
+              Weather:{" "}
+              {cardObj.weather[0].toUpperCase() + cardObj.weather.slice(1)}
+            </p>
           </div>
           <div id="preview-group-divider">
             <button
