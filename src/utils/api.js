@@ -36,6 +36,30 @@ export function postClothingItem({ name, imageUrl, weather }) {
   });
 }
 
+export function likeClothingItem({ id }) {
+  return fetch(`${baseUrl}/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${jwt}`,
+    },
+  }).then((res) => {
+    return checkResponse(res);
+  });
+}
+
+export function dislikeClothingItem({ id }) {
+  return fetch(`${baseUrl}/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${jwt}`,
+    },
+  }).then((res) => {
+    return checkResponse(res);
+  });
+}
+
 export function deleteClothingItem(cardId) {
   return fetch(`${baseUrl}/items/${cardId}`, {
     method: "DELETE",
