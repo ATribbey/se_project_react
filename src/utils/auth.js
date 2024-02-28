@@ -21,7 +21,7 @@ export function update({ name, avatar }, token) {
     },
     body: JSON.stringify({ name, avatar }),
   }).then((res) => {
-    checkResponse(res);
+    return checkResponse(res);
   });
 }
 

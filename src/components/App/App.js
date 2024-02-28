@@ -168,8 +168,8 @@ function App() {
 
   function updateUser(values) {
     const jwt = localStorage.getItem("jwt");
-    console.log(values);
-    update(values, jwt).then(() => {
+    update(values, jwt).then((res) => {
+      setCurrentUser(res.data);
       handleCloseModal();
     });
   }
