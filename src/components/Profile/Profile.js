@@ -7,6 +7,7 @@ function Profile({
   onSelectCard,
   handleOpenItemModal,
   onClick,
+  onCardLike,
   clothingItems,
   editProfile,
   logout,
@@ -51,6 +52,7 @@ function Profile({
                     item={item}
                     onSelectCard={onSelectCard}
                     handleOpenItemModal={handleOpenItemModal}
+                    onCardLike={onCardLike}
                   />
                 );
               } else return null;

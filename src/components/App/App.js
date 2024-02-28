@@ -147,17 +147,16 @@ function App() {
       });
   }
 
-  const handleCardLike = ({ _id, likes }) => {
-    const token = localStorage.getItem("jwt");
-    likes
-      ? likeClothingItem(_id, token)
+  const handleCardLike = (_id, isLiked) => {
+    isLiked
+      ? dislikeClothingItem(_id)
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((c) => (c._id === _id ? updatedCard : c))
             );
           })
           .catch((err) => console.log(err))
-      : dislikeClothingItem(_id, token)
+      : likeClothingItem(_id)
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((c) => (c._id === _id ? updatedCard : c))
@@ -268,6 +267,7 @@ function App() {
               onSelectCard={handleSelectedCard}
               handleOpenItemModal={handleOpenItemModal}
               clothingItems={clothingItems}
+              onCardLike={handleCardLike}
             />
           </Route>
           <ProtectedRoute path="/profile" loggedIn={loggedIn}>
@@ -275,6 +275,7 @@ function App() {
               onSelectCard={handleSelectedCard}
               handleOpenItemModal={handleOpenItemModal}
               onClick={handleOpenCreateModal}
+              onCardLike={handleCardLike}
               clothingItems={clothingItems}
               editProfile={handleOpenEditModal}
               logout={logoutUser}

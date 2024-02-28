@@ -36,7 +36,7 @@ export function postClothingItem({ name, imageUrl, weather }) {
   });
 }
 
-export function likeClothingItem(id, token) {
+export function likeClothingItem(id) {
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {
@@ -48,7 +48,7 @@ export function likeClothingItem(id, token) {
   });
 }
 
-export function dislikeClothingItem(id, token) {
+export function dislikeClothingItem(id) {
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
