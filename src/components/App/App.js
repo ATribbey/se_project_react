@@ -166,10 +166,14 @@ function App() {
   };
 
   function checkTokenSetUser(token) {
-    return checkToken(token).then((res) => {
-      setLoggedIn(true);
-      setCurrentUser(res.data);
-    });
+    return checkToken(token)
+      .then((res) => {
+        setLoggedIn(true);
+        setCurrentUser(res.data);
+      })
+      .catch((e) => {
+        console.error(e);
+      });
   }
 
   function loginUser(values) {
@@ -188,10 +192,14 @@ function App() {
 
   function updateUser(values) {
     const jwt = localStorage.getItem("jwt");
-    update(values, jwt).then((res) => {
-      setCurrentUser(res.data);
-      handleCloseModal();
-    });
+    update(values, jwt)
+      .then((res) => {
+        setCurrentUser(res.data);
+        handleCloseModal();
+      })
+      .catch((e) => {
+        console.error(`Unable to update user due to ${e}`);
+      });
   }
 
   function registerUser(values) {
@@ -237,14 +245,9 @@ function App() {
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt !== null) {
-      checkToken(jwt)
-        .then((res) => {
-          setLoggedIn(true);
-          setCurrentUser(res.data);
-        })
-        .catch(() => {
-          return;
-        });
+      checkTokenSetUser(jwt).catch((e) => {
+        console.error(e);
+      });
     }
   }, []);
 
@@ -295,23 +298,20 @@ function App() {
           />
         )}
         {activeModal === "login" && (
-          <LoginModal
-            onClose={handleCloseModal}
-            loginUser={loginUser}
-          ></LoginModal>
+          <LoginModal onClose={handleCloseModal} loginUser={loginUser} />
         )}
         {activeModal === "register" && (
           <RegisterModal
             onClose={handleCloseModal}
             registerUser={registerUser}
             openLoginModal={handleOpenLoginModal}
-          ></RegisterModal>
+          />
         )}
         {activeModal === "edit" && (
           <EditProfileModal
             onClose={handleCloseModal}
             updateUser={updateUser}
-          ></EditProfileModal>
+          />
         )}
 
         <Footer />
