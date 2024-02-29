@@ -3,7 +3,7 @@ import "../Profile/Profile.css";
 import ItemCard from "../ItemCard/ItemCard.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
-function ClothingSection({
+function ClothesSection({
   onSelectCard,
   handleOpenItemModal,
   onCardLike,
@@ -34,4 +34,4 @@ function ClothingSection({
   );
 }
 
-export default ClothingSection;
+export default ClothesSection;

@@ -1,7 +1,7 @@
 import { React } from "react";
 import "./Profile.css";
 import SideBar from "../Sidebar/Sidebar.js";
-import ClothingSection from "../ClothesSection/ClothesSection.js";
+import ClothesSection from "../ClothesSection/ClothesSection.js";
 
 function Profile({
   onSelectCard,
@@ -23,13 +23,13 @@ function Profile({
             + Add New
           </button>
         </div>
-        <ClothingSection
+        <ClothesSection
           onSelectCard={onSelectCard}
           handleOpenItemModal={handleOpenItemModal}
           onCardLike={onCardLike}
           loggedIn={loggedIn}
           clothingItems={clothingItems}
-        ></ClothingSection>
+        ></ClothesSection>
       </div>
     </div>
   );
