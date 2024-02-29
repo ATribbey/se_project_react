@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState, useEffect, useCallback } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
-import { CurrentTempUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import {
   getForecastWeather,
   parseWeatherTempF,
@@ -250,7 +250,7 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <CurrentTempUnitContext.Provider
+      <CurrentTemperatureUnitContext.Provider
         value={{ currentTempUnit, handleSwitchChange }}
       >
         <Header
@@ -314,7 +314,7 @@ function App() {
         )}
 
         <Footer />
-      </CurrentTempUnitContext.Provider>
+      </CurrentTemperatureUnitContext.Provider>
     </CurrentUserContext.Provider>
   );
 }
