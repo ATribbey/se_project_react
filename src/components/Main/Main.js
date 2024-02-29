@@ -2,7 +2,7 @@ import "./Main.css";
 import { useContext, useMemo } from "react";
 import WeatherCard from "../WeatherCard/WeatherCard.js";
 import ItemCard from "../ItemCard/ItemCard.js";
-import { CurrentTempUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 
 function Main({
   weatherTemp,
@@ -12,7 +12,7 @@ function Main({
   onCardLike,
   loggedIn,
 }) {
-  const { currentTempUnit } = useContext(CurrentTempUnitContext);
+  const { currentTempUnit } = useContext(CurrentTemperatureUnitContext);
 
   const temperature = currentTempUnit === "°C" ? weatherTemp.C : weatherTemp.F;
 
