@@ -12,9 +12,10 @@ function Main({
   onCardLike,
   loggedIn,
 }) {
-  const { currentTempUnit } = useContext(CurrentTemperatureUnitContext);
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
-  const temperature = currentTempUnit === "°C" ? weatherTemp.C : weatherTemp.F;
+  const temperature =
+    currentTemperatureUnit === "°C" ? weatherTemp.C : weatherTemp.F;
 
   const weatherType = useMemo(() => {
     let hotTemp = 85;
@@ -41,7 +42,7 @@ function Main({
       <section className="main__section" id="clothing-card-section">
         <p className="itemcard__description">
           Today is {temperature}
-          {currentTempUnit} / You may want to wear:
+          {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="itemcard">
           {filteredCards.map((item) => {
