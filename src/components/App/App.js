@@ -42,7 +42,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, changeTemp] = useState(0);
   const [location, changeLocation] = useState("");
-  const [currentTempUnit, changeTempUnit] = useState("°F");
+  const [currentTemperatureUnit, changeTempUnit] = useState("°F");
   const [clothingItems, setClothingItems] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
@@ -58,10 +58,10 @@ function App() {
       });
   }
 
-  function handleSwitchChange() {
-    if (currentTempUnit === "°F") {
+  function handleToggleSwitchChange() {
+    if (currentTemperatureUnit === "°F") {
       changeTempUnit("°C");
-    } else if (currentTempUnit === "°C") {
+    } else if (currentTemperatureUnit === "°C") {
       changeTempUnit("°F");
     }
   }
@@ -251,7 +251,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <CurrentTemperatureUnitContext.Provider
-        value={{ currentTempUnit, handleSwitchChange }}
+        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <Header
           location={location}
