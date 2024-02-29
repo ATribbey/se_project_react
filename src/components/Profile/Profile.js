@@ -1,7 +1,7 @@
-import { React, useContext } from "react";
+import { React } from "react";
 import "./Profile.css";
-import ItemCard from "../ItemCard/ItemCard";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
+import SideBar from "../Sidebar/Sidebar.js";
+import ClothingSection from "../ClothingSection/ClothingSection.js";
 
 function Profile({
   onSelectCard,
@@ -13,28 +13,9 @@ function Profile({
   editProfile,
   logout,
 }) {
-  const currentUser = useContext(CurrentUserContext);
-
   return (
     <div className="profile">
-      <div className="profile__user-info">
-        <div className="profile__user-info-container">
-          <img
-            className="profile__user-avatar"
-            src={currentUser?.avatar}
-            alt="Profile Avatar"
-          ></img>
-          <p className="profile__user-name">{currentUser?.name}</p>
-        </div>
-        <div className="profile__user-options">
-          <button className="profile__user-button" onClick={editProfile}>
-            Change Profile Data
-          </button>
-          <button className="profile__user-button" onClick={logout}>
-            Logout
-          </button>
-        </div>
-      </div>
+      <SideBar editProfile={editProfile} logout={logout}></SideBar>
       <div className="profile__clothing">
         <div className="profile__clothing-header">
           <p className="profile__clothing-title">Your Items</p>
@@ -42,25 +23,13 @@ function Profile({
             + Add New
           </button>
         </div>
-        <div className="profile__items">
-          <ul className="itemcard">
-            {clothingItems.map((item) => {
-              const isOwn = item.owner === currentUser._id;
-              if (isOwn) {
-                return (
-                  <ItemCard
-                    key={item._id}
-                    item={item}
-                    onSelectCard={onSelectCard}
-                    handleOpenItemModal={handleOpenItemModal}
-                    onCardLike={onCardLike}
-                    loggedIn={loggedIn}
-                  />
-                );
-              } else return null;
-            })}
-          </ul>
-        </div>
+        <ClothingSection
+          onSelectCard={onSelectCard}
+          handleOpenItemModal={handleOpenItemModal}
+          onCardLike={onCardLike}
+          loggedIn={loggedIn}
+          clothingItems={clothingItems}
+        ></ClothingSection>
       </div>
     </div>
   );
