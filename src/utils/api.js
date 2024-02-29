@@ -1,6 +1,5 @@
 const baseUrl = "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };
-const jwt = localStorage.getItem("jwt");
 
 export function checkResponse(res) {
   if (res.ok) {
@@ -20,6 +19,8 @@ export function getClothingItems() {
 }
 
 export function postClothingItem({ name, imageUrl, weather }) {
+  const jwt = localStorage.getItem("jwt");
+
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -37,6 +38,8 @@ export function postClothingItem({ name, imageUrl, weather }) {
 }
 
 export function likeClothingItem(id) {
+  const jwt = localStorage.getItem("jwt");
+
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {
@@ -49,6 +52,8 @@ export function likeClothingItem(id) {
 }
 
 export function dislikeClothingItem(id) {
+  const jwt = localStorage.getItem("jwt");
+
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
@@ -61,6 +66,8 @@ export function dislikeClothingItem(id) {
 }
 
 export function deleteClothingItem(cardId) {
+  const jwt = localStorage.getItem("jwt");
+
   return fetch(`${baseUrl}/items/${cardId}`, {
     method: "DELETE",
     headers: {
