@@ -137,3 +137,14 @@
 .modal__submit_disabled {
   opacity: 0.3;
 }
+
+.modal__login {
+  position: absolute;
+  bottom: 38px;
+  left: 165px;
+  border: none;
+  background-color: white;
+  color: #000;
+  cursor: pointer;
+  padding: 0;
+}

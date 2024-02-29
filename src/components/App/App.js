@@ -304,6 +304,7 @@ function App() {
           <RegisterModal
             onClose={handleCloseModal}
             registerUser={registerUser}
+            openLoginModal={handleOpenLoginModal}
           ></RegisterModal>
         )}
         {activeModal === "edit" && (

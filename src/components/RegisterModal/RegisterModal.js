@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function RegisterModal({ onClose, registerUser }) {
+function RegisterModal({ onClose, registerUser, openLoginModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -51,7 +51,6 @@ function RegisterModal({ onClose, registerUser }) {
           onChange={handleEmailChange}
         ></input>
       </div>
-
       <div>
         <label htmlFor="password-input" className="modal__input-title">
           Password *
@@ -99,6 +98,9 @@ function RegisterModal({ onClose, registerUser }) {
           onChange={handleAvatarChange}
         ></input>
       </div>
+      <button className="modal__login" type="button" onClick={openLoginModal}>
+        or Log in
+      </button>
     </ModalWithForm>
   );
 }
