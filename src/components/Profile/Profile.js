@@ -1,7 +1,7 @@
 import { React } from "react";
 import "./Profile.css";
 import SideBar from "../Sidebar/Sidebar.js";
-import ClothingSection from "../ClothingSection/ClothingSection.js";
+import ClothingSection from "../ClothesSection/ClothesSection.js";
 
 function Profile({
   onSelectCard,

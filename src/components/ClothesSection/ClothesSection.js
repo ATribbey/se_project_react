@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
 import "../Profile/Profile.css";
-import ItemCard from "../ItemCard/ItemCard";
+import ItemCard from "../ItemCard/ItemCard.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function ClothingSection({
