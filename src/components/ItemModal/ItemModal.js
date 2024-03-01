@@ -2,7 +2,7 @@ import { useContext } from "react";
 import "../ModalWithForm/Modal.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function ItemModal({ cardObj, onClose, handleDelete }) {
+function ItemModal({ cardObj, onClose, handleDelete, loading }) {
   const cardId = cardObj._id;
   const currentUser = useContext(CurrentUserContext);
   const isOwn = cardObj.owner === currentUser._id;
@@ -36,7 +36,7 @@ function ItemModal({ cardObj, onClose, handleDelete }) {
                   handleDelete(cardId);
                 }}
               >
-                Delete item
+                {loading ? "Deleting..." : "Delete item"}
               </button>
             ) : (
               <></>

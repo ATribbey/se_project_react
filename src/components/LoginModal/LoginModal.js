@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function LoginModal({ onClose, loginUser }) {
+function LoginModal({ onClose, loginUser, loading }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,6 +25,7 @@ function LoginModal({ onClose, loginUser }) {
       onClose={onClose}
       buttonText="Log In"
       onSubmit={handleSubmit}
+      loading={loading}
     >
       <div>
         <label htmlFor="email-input" className="modal__input-title">

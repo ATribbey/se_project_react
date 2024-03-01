@@ -46,6 +46,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const [loading, setLoading] = useState(false);
   const history = useHistory("");
 
   function fetchClothes() {
@@ -123,6 +124,7 @@ function App() {
   }
 
   function onAddItem(values) {
+    setLoading(true);
     postClothingItem(values)
       .then((newItem) => {
         setClothingItems([newItem.data, ...clothingItems]);
@@ -130,10 +132,14 @@ function App() {
       })
       .catch((err) => {
         console.error(`Unable to add clothing item due to: ${err}`);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }
 
   function onDeleteItem(cardId) {
+    setLoading(true);
     deleteClothingItem(cardId)
       .then(() => {
         const newArr = clothingItems.filter((card) => {
@@ -144,6 +150,9 @@ function App() {
       })
       .catch((err) => {
         console.error(`Unable to delete clothing item due to: ${err}`);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }
 
@@ -177,6 +186,7 @@ function App() {
   }
 
   function loginUser(values) {
+    setLoading(true);
     login(values)
       .then((res) => {
         handleCloseModal();
@@ -187,11 +197,15 @@ function App() {
       })
       .catch((e) => {
         console.error(`Unable to login to user due to: ${e}`);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }
 
   function updateUser(values) {
     const jwt = localStorage.getItem("jwt");
+    setLoading(true);
     update(values, jwt)
       .then((res) => {
         setCurrentUser(res.data);
@@ -199,10 +213,14 @@ function App() {
       })
       .catch((e) => {
         console.error(`Unable to update user due to ${e}`);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }
 
   function registerUser(values) {
+    setLoading(true);
     register(values)
       .then(() => {
         handleCloseModal();
@@ -210,6 +228,9 @@ function App() {
       })
       .catch((e) => {
         console.error(`Unable to register user due to: ${e}`);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }
 
@@ -288,29 +309,40 @@ function App() {
           </ProtectedRoute>
         </Switch>
         {activeModal === "create" && (
-          <AddItemModal onClose={handleCloseModal} onAddItem={onAddItem} />
+          <AddItemModal
+            onClose={handleCloseModal}
+            onAddItem={onAddItem}
+            loading={loading}
+          />
         )}
         {activeModal === "preview" && (
           <ItemModal
             cardObj={selectedCard}
             onClose={handleCloseModal}
             handleDelete={onDeleteItem}
+            loading={loading}
           />
         )}
         {activeModal === "login" && (
-          <LoginModal onClose={handleCloseModal} loginUser={loginUser} />
+          <LoginModal
+            onClose={handleCloseModal}
+            loginUser={loginUser}
+            loading={loading}
+          />
         )}
         {activeModal === "register" && (
           <RegisterModal
             onClose={handleCloseModal}
             registerUser={registerUser}
             openLoginModal={handleOpenLoginModal}
+            loading={loading}
           />
         )}
         {activeModal === "edit" && (
           <EditProfileModal
             onClose={handleCloseModal}
             updateUser={updateUser}
+            loading={loading}
           />
         )}
 

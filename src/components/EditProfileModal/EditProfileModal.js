@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function EditProfileModal({ onClose, updateUser }) {
+function EditProfileModal({ onClose, updateUser, loading }) {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
 
@@ -33,6 +33,7 @@ function EditProfileModal({ onClose, updateUser }) {
       onClose={onClose}
       buttonText="Save changes"
       onSubmit={onSubmit}
+      loading={loading}
     >
       <div>
         <label htmlFor="name-input" className="modal__input-title">

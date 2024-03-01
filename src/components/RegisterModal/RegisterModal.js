@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function RegisterModal({ onClose, registerUser, openLoginModal }) {
+function RegisterModal({ onClose, registerUser, openLoginModal, loading }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -35,6 +35,7 @@ function RegisterModal({ onClose, registerUser, openLoginModal }) {
       onClose={onClose}
       buttonText="Sign Up"
       onSubmit={onSubmit}
+      loading={loading}
     >
       <div>
         <label htmlFor="email-input" className="modal__input-title">

@@ -7,6 +7,7 @@ function ModalWithForm({
   children,
   buttonText = "Add Garment",
   onSubmit,
+  loading,
 }) {
   return (
     <div className={`modal modal_type_${name}`}>
@@ -17,7 +18,7 @@ function ModalWithForm({
           {children}
           <div>
             <button className="modal__submit" type="submit">
-              {buttonText}
+              {loading ? "Saving..." : buttonText}
             </button>
           </div>
         </form>
