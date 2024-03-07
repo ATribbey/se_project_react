@@ -1,9 +1,10 @@
-The WTWR App is designed to make choosing your clothes an easy task with regard to weather. 
+# WTWR (What to Wear?): Front End
 
-Using React and JSX as the foundations, this app allows users to interact with an API in order to retrieve their current location, weather, and time.
-With this information in mind then, the application presents users with a number of clothing options for appropriate for the the current climate and time day.
-Additionally, it allows users to add their own clothing, enabling them to create a virtual wardrobe from which this application will pull, on top of the default values already given.
-
-Link to project: https://github.com/ATribbey/se_project_react
+This front-end project written for my WTWR application (see the link below for back-end express application) allows users to interact with an express server and database that saves users, clothing items, and other pieces of information pertaining to both of these items. The application makes heavy use of React, as well as other technologies such as react-router-dom.
 
 Link to project backend: https://github.com/ATribbey/se_project_express
+
+## Running the Project
+
+`npm run start` — to launch the react app
+
