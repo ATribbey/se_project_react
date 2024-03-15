@@ -1,6 +1,6 @@
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://	wtwr.raspberryip.com"
+    ? "https://wtwr.raspberryip.com" || "https://www.wtwr.raspberryip.com"
     : "http://localhost:3001";
 const baseHeaders = { "Content-Type": "application/json" };
 
