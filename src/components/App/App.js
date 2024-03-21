@@ -8,6 +8,8 @@ import {
   parseWeatherTempF,
   parseWeatherLocation,
   parseWeatherTempC,
+  getWeatherCondition,
+  getCurrentTime,
 } from "../../utils/WeatherApi.js";
 import {
   getClothingItems,
@@ -42,6 +44,8 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, changeTemp] = useState(0);
   const [location, changeLocation] = useState("");
+  const [weatherCondition, setWeatherCondition] = useState("");
+  const [dayTime, setDayTime] = useState(true);
   const [currentTemperatureUnit, changeTempUnit] = useState("°F");
   const [clothingItems, setClothingItems] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -250,6 +254,9 @@ function App() {
           F: tempF,
           C: tempC,
         };
+
+        setDayTime(getCurrentTime(data));
+        setWeatherCondition(getWeatherCondition(data));
         changeTemp(temperature);
         const locale = parseWeatherLocation(data);
         changeLocation(locale);
@@ -288,6 +295,8 @@ function App() {
           <Route exact path="/">
             <Main
               weatherTemp={temp}
+              weatherCondition={weatherCondition}
+              currentTime={dayTime}
               onSelectCard={handleSelectedCard}
               handleOpenItemModal={handleOpenItemModal}
               clothingItems={clothingItems}

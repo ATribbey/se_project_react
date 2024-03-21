@@ -6,6 +6,8 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 
 function Main({
   weatherTemp,
+  weatherCondition,
+  currentTime,
   onSelectCard,
   handleOpenItemModal,
   clothingItems,
@@ -38,7 +40,11 @@ function Main({
 
   return (
     <main>
-      <WeatherCard day={false} type="clear" weatherTemp={temperature} />
+      <WeatherCard
+        day={currentTime}
+        type={weatherCondition ? weatherCondition : "clear"}
+        weatherTemp={temperature}
+      />
       <section className="main__section" id="clothing-card-section">
         <p className="itemcard__description">
           Today is {temperature}

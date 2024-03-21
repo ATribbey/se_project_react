@@ -14,6 +14,23 @@ export function getForecastWeather() {
   return weatherApi;
 }
 
+export function getWeatherCondition(data) {
+  const weatherCondition = data.weather[0].main;
+  return weatherCondition.toLowerCase();
+}
+
+export function getCurrentTime(data) {
+  const currentTime = data.dt;
+  const sunrise = data.sys.sunrise;
+  const sunset = data.sys.sunset;
+
+  if (currentTime > sunrise && currentTime < sunset) {
+    return true;
+  } else if (currentTime <= sunrise || currentTime >= sunset) {
+    return false;
+  }
+}
+
 export function parseWeatherTempF(data) {
   const temp = data.main.temp;
   return Math.round(temp);

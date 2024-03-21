@@ -12,16 +12,18 @@ import nightSnowy from "../images/weathercard-banners/night-snowy.svg";
 import nightStormy from "../images/weathercard-banners/night-stormy.svg";
 
 export const weatherOptions = [
-  { url: daySunny, day: true, type: "sunny" },
-  { url: dayCloudy, day: true, type: "cloudy" },
+  { url: daySunny, day: true, type: "clear" },
+  { url: dayCloudy, day: true, type: "clouds" },
   { url: dayFoggy, day: true, type: "foggy" },
-  { url: dayRainy, day: true, type: "rainy" },
-  { url: daySnowy, day: true, type: "snowy" },
-  { url: dayStormy, day: true, type: "stormy" },
+  { url: dayRainy, day: true, type: "rain" },
+  { url: dayRainy, day: true, type: "drizzle" },
+  { url: daySnowy, day: true, type: "snow" },
+  { url: dayStormy, day: true, type: "thunderstorm" },
   { url: nightClear, day: false, type: "clear" },
-  { url: nightCloudy, day: false, type: "cloudy" },
+  { url: nightCloudy, day: false, type: "clouds" },
   { url: nightFoggy, day: false, type: "foggy" },
-  { url: nightRainy, day: false, type: "rainy" },
-  { url: nightSnowy, day: false, type: "snowy" },
-  { url: nightStormy, day: false, type: "stormy" },
+  { url: nightRainy, day: false, type: "rain" },
+  { url: nightRainy, day: false, type: "drizzle" },
+  { url: nightSnowy, day: false, type: "snow" },
+  { url: nightStormy, day: false, type: "thunderstorm" },
 ];
