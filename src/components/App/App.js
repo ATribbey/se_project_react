@@ -29,6 +29,7 @@ import RegisterModal from "../RegisterModal/RegisterModal.js";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
 import Profile from "../Profile/Profile.js";
 import Footer from "../Footer/Footer.js";
+import EditLocationModal from "../EditLocationModal/EditLocationModal.js";
 
 /* 
 - For future reference:
@@ -44,6 +45,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, changeTemp] = useState(0);
   const [location, changeLocation] = useState("");
+  const [coords, changeCoords] = useState({ lat: 26.2517, long: -80.1789 });
   const [weatherCondition, setWeatherCondition] = useState("");
   const [dayTime, setDayTime] = useState(true);
   const [currentTemperatureUnit, changeTempUnit] = useState("°F");
@@ -95,6 +97,10 @@ function App() {
 
   function handleOpenEditModal() {
     openModal("edit");
+  }
+
+  function handleOpenLocationEditModal() {
+    openModal("location");
   }
 
   function handleCloseModal() {
@@ -223,6 +229,10 @@ function App() {
       });
   }
 
+  function updateLocation(values) {
+    setLoading(true);
+  }
+
   function registerUser(values) {
     setLoading(true);
     register(values)
@@ -246,7 +256,7 @@ function App() {
   }
 
   useEffect(() => {
-    getForecastWeather()
+    getForecastWeather(coords)
       .then((data) => {
         const tempF = parseWeatherTempF(data);
         const tempC = parseWeatherTempC(data);
@@ -313,6 +323,7 @@ function App() {
               loggedIn={loggedIn}
               clothingItems={clothingItems}
               editProfile={handleOpenEditModal}
+              editLocation={handleOpenLocationEditModal}
               logout={logoutUser}
             />
           </ProtectedRoute>
@@ -351,6 +362,13 @@ function App() {
           <EditProfileModal
             onClose={handleCloseModal}
             updateUser={updateUser}
+            loading={loading}
+          />
+        )}
+        {activeModal === "location" && (
+          <EditLocationModal
+            onClose={handleCloseModal}
+            coords={coords}
             loading={loading}
           />
         )}

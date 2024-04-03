@@ -2,7 +2,7 @@ import { React, useContext } from "react";
 import "../Profile/Profile.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
-function SideBar({ editProfile, logout }) {
+function SideBar({ editProfile, editLocation, logout }) {
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -18,6 +18,9 @@ function SideBar({ editProfile, logout }) {
       <div className="profile__user-options">
         <button className="profile__user-button" onClick={editProfile}>
           Change Profile Data
+        </button>
+        <button className="profile__user-button" onClick={editLocation}>
+          Change Location
         </button>
         <button className="profile__user-button" onClick={logout}>
           Logout

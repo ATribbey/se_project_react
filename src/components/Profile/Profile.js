@@ -11,11 +11,16 @@ function Profile({
   loggedIn,
   clothingItems,
   editProfile,
+  editLocation,
   logout,
 }) {
   return (
     <div className="profile">
-      <SideBar editProfile={editProfile} logout={logout}></SideBar>
+      <SideBar
+        editProfile={editProfile}
+        editLocation={editLocation}
+        logout={logout}
+      ></SideBar>
       <div className="profile__clothing">
         <div className="profile__clothing-header">
           <p className="profile__clothing-title">Your Items</p>
