@@ -1,4 +1,3 @@
-import "./App.css";
 import React, { useState, useEffect, useCallback } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
