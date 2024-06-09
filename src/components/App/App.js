@@ -17,7 +17,13 @@ import {
   dislikeClothingItem,
   deleteClothingItem,
 } from "../../utils/api.js";
-import { login, update, register, checkToken } from "../../utils/auth.js";
+import {
+  login,
+  update,
+  updateLocation,
+  register,
+  checkToken,
+} from "../../utils/auth.js";
 import Header from "../Header/Header.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 import Main from "../Main/Main.js";
@@ -232,6 +238,17 @@ function App() {
 
   function updateLocation(values) {
     setLoading(true);
+    updateLocation(values, jwt)
+      .then((res) => {
+        setCurrentUser(res.data);
+        handleCloseModal();
+      })
+      .catch((e) => {
+        console.error(`Unable to update user due to ${e}`);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   function registerUser(values) {
@@ -371,6 +388,7 @@ function App() {
         {activeModal === "location" && (
           <EditLocationModal
             onClose={handleCloseModal}
+            updateLocation={updateLocation}
             coords={coords}
             loading={loading}
           />
