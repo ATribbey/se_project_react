@@ -256,7 +256,7 @@ function App() {
     history.push("/");
   }
 
-  // This is temporarily commented to allow me to work without a connection
+  // This can be commented out temporarily to allow for offline work
 
   // useEffect(() => {
   //   getForecastWeather(coords)
@@ -282,9 +282,6 @@ function App() {
   useEffect(() => {
     fetchClothes();
   }, []);
-
-  // This is currently my issue. An incorrect JWT is being fetched and is throwing an error.
-  // Make sure to check the JWT and see if it is correct, and if it is not, ensure the application does not crash.
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
