@@ -237,6 +237,7 @@ function App() {
   }
 
   function updateLocation(values) {
+    const jwt = localStorage.getItem("jwt");
     setLoading(true);
     updateLocation(values, jwt)
       .then((res) => {
