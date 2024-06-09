@@ -190,6 +190,8 @@ function App() {
         setCurrentUser(res.data);
       })
       .catch((e) => {
+        setLoggedIn(false);
+        setCurrentUser({});
         console.error(e);
       });
   }
@@ -254,26 +256,28 @@ function App() {
     history.push("/");
   }
 
-  useEffect(() => {
-    getForecastWeather(coords)
-      .then((data) => {
-        const tempF = parseWeatherTempF(data);
-        const tempC = parseWeatherTempC(data);
-        const temperature = {
-          F: tempF,
-          C: tempC,
-        };
+  // This is temporarily commented to allow me to work without a connection
 
-        setDayTime(getCurrentTime(data));
-        setWeatherCondition(getWeatherCondition(data));
-        changeTemp(temperature);
-        const locale = parseWeatherLocation(data);
-        changeLocation(locale);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   getForecastWeather(coords)
+  //     .then((data) => {
+  //       const tempF = parseWeatherTempF(data);
+  //       const tempC = parseWeatherTempC(data);
+  //       const temperature = {
+  //         F: tempF,
+  //         C: tempC,
+  //       };
+
+  //       setDayTime(getCurrentTime(data));
+  //       setWeatherCondition(getWeatherCondition(data));
+  //       changeTemp(temperature);
+  //       const locale = parseWeatherLocation(data);
+  //       changeLocation(locale);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // }, []);
 
   useEffect(() => {
     fetchClothes();
