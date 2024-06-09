@@ -279,6 +279,9 @@ function App() {
     fetchClothes();
   }, []);
 
+  // This is currently my issue. An incorrect JWT is being fetched and is throwing an error.
+  // Make sure to check the JWT and see if it is correct, and if it is not, ensure the application does not crash.
+
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt !== null) {
