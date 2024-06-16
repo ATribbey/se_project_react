@@ -276,26 +276,26 @@ function App() {
 
   // This can be commented out temporarily to allow for offline work
 
-  // useEffect(() => {
-  //   getForecastWeather(coords)
-  //     .then((data) => {
-  //       const tempF = parseWeatherTempF(data);
-  //       const tempC = parseWeatherTempC(data);
-  //       const temperature = {
-  //         F: tempF,
-  //         C: tempC,
-  //       };
+  useEffect(() => {
+    getForecastWeather(coords)
+      .then((data) => {
+        const tempF = parseWeatherTempF(data);
+        const tempC = parseWeatherTempC(data);
+        const temperature = {
+          F: tempF,
+          C: tempC,
+        };
 
-  //       setDayTime(getCurrentTime(data));
-  //       setWeatherCondition(getWeatherCondition(data));
-  //       changeTemp(temperature);
-  //       const locale = parseWeatherLocation(data);
-  //       changeLocation(locale);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // }, []);
+        setDayTime(getCurrentTime(data));
+        setWeatherCondition(getWeatherCondition(data));
+        changeTemp(temperature);
+        const locale = parseWeatherLocation(data);
+        changeLocation(locale);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   useEffect(() => {
     fetchClothes();
