@@ -236,6 +236,8 @@ function App() {
       });
   }
 
+  // Migrate the functionality of updateLocation into updateUser
+
   function updateLocation(values) {
     const jwt = localStorage.getItem("jwt");
     setLoading(true);
